@@ -1,0 +1,41 @@
+{
+  "version": "1.0",
+  "updated_at": "2026-05-19T17:12:14.018Z",
+  "last_handoff_at": null,
+  "last_handoff_commit": null,
+  "active_session_id": null,
+  "bootstrap": {
+    "migrated_memory_bank": false,
+    "managed_skills_initialized_at": "2026-05-19T17:12:14.011Z",
+    "managed_skill_registry_version": "1",
+    "managed_skill_ids": [
+      "grill-with-docs",
+      "zoom-out",
+      "improve-codebase-architecture",
+      "tdd",
+      "grill-me"
+    ],
+    "initialized_at": "2026-05-19T17:12:14.014Z",
+    "initialized_from_existing_store": false
+  },
+  "managed_skill_artifacts": {
+    "CONTEXT.md": {
+      "canonical_path": "/home/adoleh/Documents/incubator-os/CONTEXT.md",
+      "canonical_precedence": "repo-doc",
+      "last_seen_fingerprint": {
+        "mtime_ms": 1779210734008.775,
+        "size": 1108
+      },
+      "last_seen_canonical_content": "# Glossary\n\n## Terms\n- adapter: define this project-specific term or explain why it matters here\n- extensions: define this project-specific term or explain why it matters here\n- incubator-os: define this project-specific term or explain why it matters here\n- instructions: define this project-specific term or explain why it matters here\n- migrations: define this project-specific term or explain why it matters here\n- setup: define this project-specific term or explain why it matters here\n- staff-ui: define this project-specific term or explain why it matters here\n- webhook-handler: define this project-specific term or explain why it matters here",
+      "last_sync_direction": "repo-to-context",
+      "repo_changed_externally": false,
+      "updated_at": "2026-05-19T17:12:14.010Z"
+    },
+    "docs/adr": {
+      "canonical_path": "/home/adoleh/Documents/incubator-os/docs/adr",
+      "canonical_precedence": "repo-dir",
+      "updated_at": "2026-05-19T17:12:14.010Z"
+    }
+  },
+  "managed_skill_warnings": []
+}

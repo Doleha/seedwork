@@ -1,0 +1,209 @@
+{
+  "version": "1.1",
+  "workspace_root": "/home/adoleh/Documents/incubator-os",
+  "generated_at": "2026-05-19T17:12:12.608Z",
+  "project_kinds": [
+    "automation-heavy"
+  ],
+  "runtimes": [
+    "node"
+  ],
+  "package_manager": "pnpm",
+  "package_name": "incubator-os",
+  "package_scripts": [
+    "build",
+    "typecheck"
+  ],
+  "top_level_entries": [
+    ".env.example",
+    ".gitignore",
+    "CLAUDE.md",
+    "README.md",
+    "adapter",
+    "clipmart-template.json",
+    "docker-compose.n8n.yml",
+    "docker-compose.yml",
+    "extensions",
+    "instructions",
+    "migrations",
+    "package.json",
+    "pnpm-lock.yaml",
+    "pnpm-workspace.yaml",
+    "scripts",
+    "setup",
+    "setup.sh",
+    "staff-ui",
+    "tsconfig.base.json",
+    "webhook-handler"
+  ],
+  "readme_summary": "**A self-building AI organization that runs a nonprofit incubator and accelerator — built natively on Paperclip.**",
+  "test_surfaces": [
+    "package-script:typecheck"
+  ],
+  "integrations": [],
+  "deployment_surfaces": [
+    "docker"
+  ],
+  "key_subsystems": [
+    {
+      "name": "adapter",
+      "kind": "directory",
+      "sample_children": [
+        "REGISTRY.md",
+        "package.json",
+        "src",
+        "tsconfig.json"
+      ]
+    },
+    {
+      "name": "extensions",
+      "kind": "directory",
+      "sample_children": [
+        "n8n-bridge"
+      ]
+    },
+    {
+      "name": "instructions",
+      "kind": "directory",
+      "sample_children": [
+        "executive-director.md",
+        "nonprofit",
+        "programs",
+        "shared",
+        "standard"
+      ]
+    },
+    {
+      "name": "migrations",
+      "kind": "directory",
+      "sample_children": [
+        "phase1",
+        "phase2",
+        "phase3"
+      ]
+    },
+    {
+      "name": "scripts",
+      "kind": "directory",
+      "sample_children": [
+        "activate-phase.sh"
+      ]
+    },
+    {
+      "name": "setup",
+      "kind": "directory",
+      "sample_children": [
+        "init-company.sh"
+      ]
+    },
+    {
+      "name": "staff-ui",
+      "kind": "directory",
+      "sample_children": [
+        "Dockerfile",
+        "index.html",
+        "nginx.conf",
+        "package.json",
+        "postcss.config.js",
+        "src"
+      ]
+    },
+    {
+      "name": "webhook-handler",
+      "kind": "directory",
+      "sample_children": [
+        "Dockerfile",
+        "package.json",
+        "src",
+        "tsconfig.json"
+      ]
+    }
+  ],
+  "likely_public_contracts": [],
+  "common_file_clusters": [
+    "adapter",
+    "extensions",
+    "instructions",
+    "migrations",
+    "scripts",
+    "setup",
+    "staff-ui",
+    "webhook-handler"
+  ],
+  "high_risk_areas": [
+    ".env.example",
+    ".gitignore",
+    "CLAUDE.md",
+    "README.md",
+    "adapter/REGISTRY.md",
+    "adapter/package.json"
+  ],
+  "hotspot_files": [
+    {
+      "file": ".env.example",
+      "count": 1
+    },
+    {
+      "file": ".gitignore",
+      "count": 1
+    },
+    {
+      "file": "CLAUDE.md",
+      "count": 1
+    },
+    {
+      "file": "README.md",
+      "count": 1
+    },
+    {
+      "file": "adapter/REGISTRY.md",
+      "count": 1
+    },
+    {
+      "file": "adapter/package.json",
+      "count": 1
+    },
+    {
+      "file": "adapter/src/index.ts",
+      "count": 1
+    },
+    {
+      "file": "adapter/src/paperclip-client.ts",
+      "count": 1
+    },
+    {
+      "file": "adapter/src/quality.ts",
+      "count": 1
+    },
+    {
+      "file": "adapter/src/semaphore.ts",
+      "count": 1
+    }
+  ],
+  "recurring_topics": [
+    {
+      "topic": "feat",
+      "count": 1
+    },
+    {
+      "topic": "initial",
+      "count": 1
+    },
+    {
+      "topic": "project",
+      "count": 1
+    },
+    {
+      "topic": "setup",
+      "count": 1
+    }
+  ],
+  "recent_commits": [
+    {
+      "sha": "bdbe1a9d816f74f743c1059c67f0dd400e7e42c8",
+      "date": "2026-05-19T13:05:00-04:00",
+      "subject": "feat: initial project setup"
+    }
+  ],
+  "updated_at": "2026-05-19T17:12:12.611Z"
+}

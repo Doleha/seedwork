@@ -1,0 +1,318 @@
+{
+  "version": "1.0",
+  "updated_at": "2026-05-19T17:12:14.014Z",
+  "sections": {
+    "project_brief": {
+      "title": "Project Brief",
+      "role": "stable mission and target users",
+      "content": "# Project Brief\n\n## Purpose\nOperational scripts and repo automation are part of the normal workflow. The packaged entrypoint is identified as incubator-os.\n\n## Target Users\n- Developers and automated agents working in this repository.\n\n## Repo Facts\n- Workspace: /home/adoleh/Documents/incubator-os\n- Branch: main\n- Package: incubator-os\n- Package manager: pnpm\n- Runtimes: node\n- Primary surfaces: adapter, extensions, instructions, migrations, setup, staff-ui, webhook-handler\n",
+      "source": "auto-bootstrap",
+      "updated_at": "2026-05-19T17:12:12.673Z",
+      "meta": {
+        "update_policy": "bootstrap-or-agent",
+        "last_evaluated_at": "2026-05-19T17:12:14.014Z",
+        "last_evaluated_by": "bootstrap-refresh",
+        "last_evaluation_result": "unchanged",
+        "active_session_id": null
+      }
+    },
+    "product_context": {
+      "title": "Product Context",
+      "role": "domain facts and product model",
+      "content": "# Product Context\n\n## Overview\nREADME summary: **A self-building AI organization that runs a nonprofit incubator and accelerator — built natively on Paperclip.** Package name: incubator-os. Project kinds: automation-heavy. Runtime signals: node. Verification surfaces: package-script:typecheck.\n\n## Repo Kinds\n- automation-heavy\n\n## Verification Surfaces\n- package-script:typecheck\n\n## Recent Signals\n- feat: initial project setup\n",
+      "source": "auto-bootstrap",
+      "updated_at": "2026-05-19T17:12:12.730Z",
+      "meta": {
+        "update_policy": "bootstrap-or-agent",
+        "last_evaluated_at": "2026-05-19T17:12:14.014Z",
+        "last_evaluated_by": "bootstrap-refresh",
+        "last_evaluation_result": "unchanged",
+        "active_session_id": null
+      }
+    },
+    "system_patterns": {
+      "title": "System Patterns",
+      "role": "architectural and implementation patterns",
+      "content": "# System Patterns\n\n## Repository Tree\n- .env.example\n- .gitignore\n- adapter/\n  - adapter/node_modules/\n  - adapter/package.json\n  - adapter/REGISTRY.md\n  - adapter/src/\n  - adapter/tsconfig.json\n- CLAUDE.md\n- clipmart-template.json\n- docker-compose.n8n.yml\n- docker-compose.yml\n- extensions/\n  - extensions/n8n-bridge/\n- instructions/\n  - instructions/executive-director.md\n  - instructions/nonprofit/\n  - instructions/programs/\n  - instructions/shared/\n  - instructions/standard/\n- migrations/\n  - migrations/phase1/\n  - migrations/phase2/\n  - migrations/phase3/\n- package.json\n- pnpm-lock.yaml\n- pnpm-workspace.yaml\n- README.md\n- scripts/\n  - scripts/activate-phase.sh\n- setup/\n  - setup/init-company.sh\n- setup.sh\n- staff-ui/\n  - staff-ui/dist/\n  - staff-ui/Dockerfile\n  - staff-ui/index.html\n  - staff-ui/nginx.conf\n  - staff-ui/node_modules/\n  - staff-ui/package.json\n  - staff-ui/postcss.config.js\n  - staff-ui/src/\n  - staff-ui/tailwind.config.js\n  - staff-ui/tsconfig.json\n  - staff-ui/vite.config.ts\n- tsconfig.base.json\n- webhook-handler/\n  - webhook-handler/Dockerfile\n  - webhook-handler/node_modules/\n  - webhook-handler/package.json\n  - webhook-handler/src/\n  - webhook-handler/tsconfig.json\n\n## Runtime And Tooling\n- Package: incubator-os\n- Package manager: pnpm\n- Runtimes: node\n\n## Key Subsystems\n- adapter: REGISTRY.md, package.json, src, tsconfig.json\n- extensions: n8n-bridge\n- instructions: executive-director.md, nonprofit, programs, shared, standard\n- migrations: phase1, phase2, phase3\n- scripts: activate-phase.sh\n- setup: init-company.sh\n- staff-ui: Dockerfile, index.html, nginx.conf, package.json, postcss.config.js, src\n- webhook-handler: Dockerfile, package.json, src, tsconfig.json\n\n## Common File Clusters\n- adapter\n- extensions\n- instructions\n- migrations\n- scripts\n- setup\n- staff-ui\n- webhook-handler\n\n## Change Hotspots\n- .env.example (1 touches)\n- .gitignore (1 touches)\n- CLAUDE.md (1 touches)\n- README.md (1 touches)\n- adapter/REGISTRY.md (1 touches)\n- adapter/package.json (1 touches)\n- adapter/src/index.ts (1 touches)\n- adapter/src/paperclip-client.ts (1 touches)\n",
+      "source": "auto-bootstrap",
+      "updated_at": "2026-05-19T17:12:12.790Z",
+      "meta": {
+        "update_policy": "bootstrap-or-agent",
+        "last_evaluated_at": "2026-05-19T17:12:14.014Z",
+        "last_evaluated_by": "bootstrap-refresh",
+        "last_evaluation_result": "unchanged",
+        "active_session_id": null
+      }
+    },
+    "architectural_memory": {
+      "title": "Architectural Memory",
+      "role": "architectural rationale and system-level guidance",
+      "content": "# Architectural Memory\n\n## Starter Summary\nStarter architecture summary: Node/JavaScript workspace detected from package.json. Operational or utility automation is present in scripts/. Repository documentation exists and should refine the starter context. Historically active files include .env.example, .gitignore, CLAUDE.md. Recurring commit topics include feat, initial, project, setup.\n\n## Derived Facts\n- No integration facts detected\n- Deployment surface: docker\n- No likely public contracts detected\n- Verification surface: package-script:typecheck\n\n## Notes\nAdd durable architecture constraints, integration boundaries, and key design rationale here.\n\n## Commit History Signals\n- feat: initial project setup\n\n<!-- context-manager:adr-inventory:start -->\n## ADR Inventory\n- No ADR files recorded yet.\n<!-- context-manager:adr-inventory:end -->\n\n<!-- context-manager:architecture-observations:start -->\n## Architecture Observations\n- No architecture observations recorded yet.\n<!-- context-manager:architecture-observations:end -->\n",
+      "source": "managed-skill-sync",
+      "updated_at": "2026-05-19T17:12:14.011Z",
+      "meta": {
+        "managed_by": "context-manager",
+        "canonical_skill_artifact": true,
+        "update_policy": "bootstrap-or-agent",
+        "last_evaluated_at": "2026-05-19T17:12:14.014Z",
+        "last_evaluated_by": "bootstrap-refresh",
+        "last_evaluation_result": "unchanged",
+        "active_session_id": null
+      }
+    },
+    "constraints": {
+      "title": "Constraints",
+      "role": "hard boundaries and non-negotiable limits",
+      "content": "# Constraints\n\n## Hard Boundaries\n- Repository is under git; preserve existing branch and worktree expectations.\n- Prefer the existing package manager flow: pnpm.\n\n## Reminder\n- Add explicit compatibility, deployment, performance, or policy constraints here as they are discovered.\n",
+      "source": "auto-bootstrap",
+      "updated_at": "2026-05-19T17:12:12.946Z",
+      "meta": {
+        "update_policy": "bootstrap-or-agent",
+        "last_evaluated_at": "2026-05-19T17:12:14.014Z",
+        "last_evaluated_by": "bootstrap-refresh",
+        "last_evaluation_result": "unchanged",
+        "active_session_id": null
+      }
+    },
+    "invariants": {
+      "title": "Invariants",
+      "role": "behaviors and contracts that must remain true",
+      "content": "# Invariants\n\n## Must Remain True\n- Existing verification surfaces should continue to exercise the intended behavior after changes.\n\n## Reminder\n- Stable API shapes, auth behavior, and persisted data assumptions belong here.\n",
+      "source": "auto-bootstrap",
+      "updated_at": "2026-05-19T17:12:13.013Z",
+      "meta": {
+        "update_policy": "bootstrap-or-agent",
+        "last_evaluated_at": "2026-05-19T17:12:14.014Z",
+        "last_evaluated_by": "bootstrap-refresh",
+        "last_evaluation_result": "unchanged",
+        "active_session_id": null
+      }
+    },
+    "environment_map": {
+      "title": "Environment Map",
+      "role": "runtime surfaces, services, and integrations",
+      "content": "# Environment Map\n\n## Runtime Surfaces\n- Application/runtime: Node.js package-managed workspace\n- Automation surface: scripts/ contains operational tooling\n- Container surface: Docker assets detected\n- Deployment surfaces: docker\n- Primary repo surfaces: adapter, extensions, instructions, migrations, setup, staff-ui, webhook-handler\n",
+      "source": "auto-bootstrap",
+      "updated_at": "2026-05-19T17:12:13.078Z",
+      "meta": {
+        "update_policy": "bootstrap-or-agent",
+        "last_evaluated_at": "2026-05-19T17:12:14.014Z",
+        "last_evaluated_by": "bootstrap-refresh",
+        "last_evaluation_result": "unchanged",
+        "active_session_id": null
+      }
+    },
+    "ownership_map": {
+      "title": "Ownership Map",
+      "role": "responsibility boundaries for core, legacy, and sensitive areas",
+      "content": "# Ownership Map\n\n## Responsibility Boundaries\n- Hotspot: .env.example (1 historical touches)\n- Hotspot: .gitignore (1 historical touches)\n- Hotspot: CLAUDE.md (1 historical touches)\n- Hotspot: README.md (1 historical touches)\n- Hotspot: adapter/REGISTRY.md (1 historical touches)\n- Hotspot: adapter/package.json (1 historical touches)\n",
+      "source": "auto-bootstrap",
+      "updated_at": "2026-05-19T17:12:13.144Z",
+      "meta": {
+        "update_policy": "bootstrap-or-agent",
+        "last_evaluated_at": "2026-05-19T17:12:14.014Z",
+        "last_evaluated_by": "bootstrap-refresh",
+        "last_evaluation_result": "unchanged",
+        "active_session_id": null
+      }
+    },
+    "interface_contracts": {
+      "title": "Interface Contracts",
+      "role": "important boundaries between components and services",
+      "content": "# Interface Contracts\n\n## Known Boundaries\n- Operational scripts may form implicit automation contracts with CI or developer workflows.\n",
+      "source": "auto-bootstrap",
+      "updated_at": "2026-05-19T17:12:13.204Z",
+      "meta": {
+        "update_policy": "bootstrap-or-agent",
+        "last_evaluated_at": "2026-05-19T17:12:14.014Z",
+        "last_evaluated_by": "bootstrap-refresh",
+        "last_evaluation_result": "unchanged",
+        "active_session_id": null
+      }
+    },
+    "context_workflow": {
+      "title": "Context Workflow",
+      "role": "rules for how the assistant should maintain context during the session",
+      "content": "# Context Workflow\n\n## Session Start\n- Start work by calling `task_start` for this workspace.\n- Treat the returned context payload as the authoritative context for the session.\n\n## During The Session\n- Use `task_checkpoint` when the task direction changes materially or after significant edits.\n- Use `upsert_context` to update active context, current task intent, open questions, constraints, or risks.\n- Use `log_decision` when a meaningful design or implementation choice is made.\n- Use `log_lesson` when a mistake, constraint, or proven pattern is discovered.\n\n## Session End\n- Use `task_end` before closing out a session to generate a handoff.\n\n## Working Rules\n- Keep active context concise and current.\n- Prefer structured context updates over repeating the same reminders in chat.\n- Treat progress as current execution state; use handoffs and lessons for historical continuity.\n",
+      "source": "auto-bootstrap",
+      "updated_at": "2026-05-19T17:12:13.264Z",
+      "meta": {
+        "update_policy": "bootstrap-or-agent",
+        "last_evaluated_at": "2026-05-19T17:12:14.014Z",
+        "last_evaluated_by": "bootstrap-refresh",
+        "last_evaluation_result": "unchanged",
+        "active_session_id": null
+      }
+    },
+    "glossary": {
+      "title": "Glossary",
+      "role": "project-specific terms and internal vocabulary",
+      "content": "# Glossary\n\n## Terms\n- adapter: define this project-specific term or explain why it matters here\n- extensions: define this project-specific term or explain why it matters here\n- incubator-os: define this project-specific term or explain why it matters here\n- instructions: define this project-specific term or explain why it matters here\n- migrations: define this project-specific term or explain why it matters here\n- setup: define this project-specific term or explain why it matters here\n- staff-ui: define this project-specific term or explain why it matters here\n- webhook-handler: define this project-specific term or explain why it matters here\n",
+      "source": "managed-skill-sync",
+      "updated_at": "2026-05-19T17:12:14.011Z",
+      "meta": {
+        "managed_by": "context-manager",
+        "canonical_skill_artifact": true,
+        "update_policy": "bootstrap-or-agent",
+        "last_evaluated_at": "2026-05-19T17:12:14.014Z",
+        "last_evaluated_by": "bootstrap-refresh",
+        "last_evaluation_result": "unchanged",
+        "active_session_id": null
+      }
+    },
+    "lessons_learned": {
+      "title": "Lessons Learned",
+      "role": "durable lessons, pitfalls, and anti-patterns",
+      "content": "# Lessons Learned\n\n## Current Durable Lessons\n- No durable lessons recorded yet\n\n## Session-Derived Lessons\n- No lesson candidates surfaced in the active session\n",
+      "source": "generated-store",
+      "updated_at": "2026-05-19T17:12:14.012Z",
+      "meta": {
+        "update_policy": "generated-store",
+        "last_evaluated_at": "2026-05-19T17:12:14.014Z",
+        "last_evaluated_by": "bootstrap-refresh",
+        "last_evaluation_result": "updated",
+        "active_session_id": null
+      }
+    },
+    "open_questions": {
+      "title": "Open Questions",
+      "role": "unresolved design and implementation questions",
+      "content": "# Open Questions\n\n## Unresolved\n- No open questions recorded\n",
+      "source": "session-state",
+      "updated_at": "2026-05-19T17:12:14.012Z",
+      "meta": {
+        "update_policy": "live-session",
+        "last_evaluated_at": "2026-05-19T17:12:14.014Z",
+        "last_evaluated_by": "bootstrap-refresh",
+        "last_evaluation_result": "updated",
+        "active_session_id": null
+      }
+    },
+    "risk_register": {
+      "title": "Risk Register",
+      "role": "fragile areas, debt hotspots, and known failure modes",
+      "content": "# Risk Register\n\n## Known Risks\n- High-risk area: .env.example\n- High-risk area: .gitignore\n- High-risk area: CLAUDE.md\n- High-risk area: README.md\n- High-risk area: adapter/REGISTRY.md\n- High-risk area: adapter/package.json\n",
+      "source": "generated-store",
+      "updated_at": "2026-05-19T17:12:14.013Z",
+      "meta": {
+        "update_policy": "generated-store",
+        "last_evaluated_at": "2026-05-19T17:12:14.014Z",
+        "last_evaluated_by": "bootstrap-refresh",
+        "last_evaluation_result": "updated",
+        "active_session_id": null
+      }
+    },
+    "verification_strategy": {
+      "title": "Verification Strategy",
+      "role": "how correctness is checked in this workspace",
+      "content": "# Verification Strategy\n\n## Durable Verification State\n- Completed: none\n- Pending: none\n- Planned: none\n\n## Related Files\n- No verification-linked files recorded\n\n## Verification Notes\n- No durable verification notes recorded\n\n## Session Snapshot\n- Session completed: none\n- Session pending: none\n- Session planned: none\n",
+      "source": "generated-store",
+      "updated_at": "2026-05-19T17:12:14.014Z",
+      "meta": {
+        "update_policy": "generated-store",
+        "last_evaluated_at": "2026-05-19T17:12:14.014Z",
+        "last_evaluated_by": "bootstrap-refresh",
+        "last_evaluation_result": "updated",
+        "active_session_id": null
+      }
+    },
+    "current_task_intent": {
+      "title": "Current Task Intent",
+      "role": "what the present effort is trying to achieve and why now",
+      "content": "# Current Task Intent\n\n## Active Objective\n- No current goal recorded\n\n## Task Summary\n- No task summary recorded\n\n## Phase\n- orientation\n",
+      "source": "session-state",
+      "updated_at": "2026-05-19T17:12:14.012Z",
+      "meta": {
+        "update_policy": "live-session",
+        "last_evaluated_at": "2026-05-19T17:12:14.014Z",
+        "last_evaluated_by": "bootstrap-refresh",
+        "last_evaluation_result": "updated",
+        "active_session_id": null
+      }
+    },
+    "historical_summaries": {
+      "title": "Historical Summaries",
+      "role": "compressed summaries of recent project evolution",
+      "content": "# Historical Summaries\n\n## Recent Evolution\n- No recent historical summaries recorded\n",
+      "source": "generated-store",
+      "updated_at": "2026-05-19T17:12:14.014Z",
+      "meta": {
+        "update_policy": "generated-store",
+        "last_evaluated_at": "2026-05-19T17:12:14.014Z",
+        "last_evaluated_by": "bootstrap-refresh",
+        "last_evaluation_result": "updated",
+        "active_session_id": null
+      }
+    },
+    "retrieval_priority": {
+      "title": "Retrieval Priority",
+      "role": "context precedence rules when memory sources conflict",
+      "content": "# Retrieval Priority\n\n## Base Precedence\n- 1. user_preferences\n- 2. context_workflow\n- 3. current_task_intent\n- 4. active_context\n- 5. progress_tracking\n- 6. constraints\n- 7. invariants\n- 8. risk_register\n- 9. verification_strategy\n- 10. environment_map\n- 11. interface_contracts\n- 12. system_patterns\n- 13. architectural_memory\n- 14. project_brief\n- 15. product_context\n- 16. lessons_learned\n- 17. decisions\n- 18. historical_summaries\n- 19. recent_handoff\n- 20. workspace_inventory\n- 21. glossary\n- 22. open_questions\n- 23. ownership_map\n\n## Current Phase\n- orientation\n\n## Phase Emphasis\n- project_brief\n- product_context\n- system_patterns\n- workspace_inventory\n\n## Rule\n- Prefer phase-relevant, newer operational context first; fall back to durable memory when it adds stable constraints, lessons, or architecture.\n",
+      "source": "generated-store",
+      "updated_at": "2026-05-19T17:12:14.013Z",
+      "meta": {
+        "update_policy": "generated-store",
+        "last_evaluated_at": "2026-05-19T17:12:14.014Z",
+        "last_evaluated_by": "bootstrap-refresh",
+        "last_evaluation_result": "updated",
+        "active_session_id": null
+      }
+    },
+    "active_context": {
+      "title": "Active Context",
+      "role": "current goals, blockers, and short-lived working state",
+      "content": "# Active Context\n\n## Current Goal\n- No current goal recorded\n\n## Focus Files\n- No focus files recorded\n\n## Focus Symbols\n- No focus symbols recorded\n\n## Recent Findings\n- No findings recorded\n\n## Open Questions\n- No open questions recorded\n",
+      "source": "session-state",
+      "updated_at": "2026-05-19T17:12:14.012Z",
+      "meta": {
+        "update_policy": "live-session",
+        "last_evaluated_at": "2026-05-19T17:12:14.014Z",
+        "last_evaluated_by": "bootstrap-refresh",
+        "last_evaluation_result": "updated",
+        "active_session_id": null
+      }
+    },
+    "progress_tracking": {
+      "title": "Progress Tracking",
+      "role": "done, doing, and next execution state",
+      "content": "# Progress Tracking\n\n## Phase\n- orientation\n\n## Plan\n- No plan recorded\n\n## Recent Actions\n- No recent actions recorded\n\n## Verification\n- Completed: none\n- Pending: none\n- Planned: none\n\n## Changed Files\n- No changed files recorded\n\n## Candidate Decisions\n- None recorded\n\n## Candidate Lessons\n- None recorded\n",
+      "source": "session-state",
+      "updated_at": "2026-05-19T17:12:14.012Z",
+      "meta": {
+        "update_policy": "live-session",
+        "last_evaluated_at": "2026-05-19T17:12:14.014Z",
+        "last_evaluated_by": "bootstrap-refresh",
+        "last_evaluation_result": "updated",
+        "active_session_id": null
+      }
+    },
+    "workspace_inventory": {
+      "title": "Workspace Inventory",
+      "role": "repo tree and starter inventory",
+      "content": "# Workspace Inventory\n\n## Top-Level Tree\n- .env.example\n- .gitignore\n- adapter/\n  - adapter/node_modules/\n  - adapter/package.json\n  - adapter/REGISTRY.md\n  - adapter/src/\n  - adapter/tsconfig.json\n- CLAUDE.md\n- clipmart-template.json\n- docker-compose.n8n.yml\n- docker-compose.yml\n- extensions/\n  - extensions/n8n-bridge/\n- instructions/\n  - instructions/executive-director.md\n  - instructions/nonprofit/\n  - instructions/programs/\n  - instructions/shared/\n  - instructions/standard/\n- migrations/\n  - migrations/phase1/\n  - migrations/phase2/\n  - migrations/phase3/\n- package.json\n- pnpm-lock.yaml\n- pnpm-workspace.yaml\n- README.md\n- scripts/\n  - scripts/activate-phase.sh\n- setup/\n  - setup/init-company.sh\n- setup.sh\n- staff-ui/\n  - staff-ui/dist/\n  - staff-ui/Dockerfile\n  - staff-ui/index.html\n  - staff-ui/nginx.conf\n  - staff-ui/node_modules/\n  - staff-ui/package.json\n  - staff-ui/postcss.config.js\n  - staff-ui/src/\n  - staff-ui/tailwind.config.js\n  - staff-ui/tsconfig.json\n  - staff-ui/vite.config.ts\n- tsconfig.base.json\n- webhook-handler/\n  - webhook-handler/Dockerfile\n  - webhook-handler/node_modules/\n  - webhook-handler/package.json\n  - webhook-handler/src/\n  - webhook-handler/tsconfig.json\n\n## Primary Surfaces\n- adapter\n- extensions\n- instructions\n- migrations\n- setup\n- staff-ui\n- webhook-handler\n\n## Key Subsystems\n- adapter: REGISTRY.md, package.json, src, tsconfig.json\n- extensions: n8n-bridge\n- instructions: executive-director.md, nonprofit, programs, shared, standard\n- migrations: phase1, phase2, phase3\n- scripts: activate-phase.sh\n- setup: init-company.sh\n- staff-ui: Dockerfile, index.html, nginx.conf, package.json, postcss.config.js, src\n- webhook-handler: Dockerfile, package.json, src, tsconfig.json\n\n## Top-Level Entries\n- .env.example\n- .gitignore\n- CLAUDE.md\n- README.md\n- adapter\n- clipmart-template.json\n- docker-compose.n8n.yml\n- docker-compose.yml\n- extensions\n- instructions\n- migrations\n- package.json\n- pnpm-lock.yaml\n- pnpm-workspace.yaml\n- scripts\n- setup\n- setup.sh\n- staff-ui\n- tsconfig.base.json\n- webhook-handler\n\n## Frequently Changed Files\n- .env.example (1 touches)\n- .gitignore (1 touches)\n- CLAUDE.md (1 touches)\n- README.md (1 touches)\n- adapter/REGISTRY.md (1 touches)\n- adapter/package.json (1 touches)\n- adapter/src/index.ts (1 touches)\n- adapter/src/paperclip-client.ts (1 touches)\n- adapter/src/quality.ts (1 touches)\n- adapter/src/semaphore.ts (1 touches)\n",
+      "source": "auto-bootstrap",
+      "updated_at": "2026-05-19T17:12:13.948Z",
+      "meta": {
+        "update_policy": "bootstrap-or-agent",
+        "last_evaluated_at": "2026-05-19T17:12:14.014Z",
+        "last_evaluated_by": "bootstrap-refresh",
+        "last_evaluation_result": "unchanged",
+        "active_session_id": null
+      }
+    },
+    "user_preferences": {
+      "title": "User Preferences",
+      "role": "human collaboration preferences",
+      "content": "# User Preferences\n\n## Communication Style\n- Add preferred tone, concision, and reporting style here\n\n## Workflow Preferences\n- Add preferred working patterns, checkpoints, and review expectations here\n",
+      "source": "auto-bootstrap",
+      "updated_at": "2026-05-19T17:12:14.007Z",
+      "meta": {
+        "update_policy": "bootstrap-or-agent",
+        "last_evaluated_at": "2026-05-19T17:12:14.014Z",
+        "last_evaluated_by": "bootstrap-refresh",
+        "last_evaluation_result": "unchanged",
+        "active_session_id": null
+      }
+    }
+  }
+}

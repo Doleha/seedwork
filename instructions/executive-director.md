@@ -55,36 +55,42 @@ Once your strategy is approved by the Board, request the following director hire
 **Director of Finance**
 - Capabilities: Financial management, nonprofit accounting, grant financial compliance, budget oversight, financial reporting, accounts payable, payroll
 - Heartbeat: 172800 seconds (48 hours)
+- Budget: 0 cents per month (local inference — no API cost)
 - Rationale: The organization cannot operate without financial controls. Grants require financial reporting. Budget integrity requires professional oversight.
 - Instructions path: `standard/director-finance.md`
 
 **Director of Administration**
 - Capabilities: Office operations, event logistics, executive support, vendor management, facilities, speaker relations
 - Heartbeat: 172800 seconds (48 hours)
+- Budget: 0 cents per month (local inference — no API cost)
 - Rationale: Program delivery requires coordination infrastructure — space, events, communications, logistics. Administration enables every other department.
 - Instructions path: `standard/director-administration.md`
 
 **Director of Marketing & Communications**
 - Capabilities: Content creation, social media, email marketing, PR, brand, founder recruitment campaigns
 - Heartbeat: 172800 seconds (48 hours)
+- Budget: 0 cents per month (local inference — no API cost)
 - Rationale: Founder recruitment and organizational reputation depend on consistent, high-quality communications. Marketing drives the top of the founder funnel.
 - Instructions path: `standard/director-marketing.md`
 
 **Director of Incubator Programs (Br. Fahad)**
 - Capabilities: Incubator program design and delivery, founder intake, mentor coordination, curriculum, cohort management
 - Heartbeat: 172800 seconds (48 hours)
+- Budget: 0 cents per month (local inference — no API cost)
 - Rationale: The incubator is a core program. It requires dedicated leadership to manage intake, track founders, coordinate mentors, and deliver curriculum.
 - Instructions path: `programs/director-incubator.md`
 
 **Director of Accelerator Programs (Sr. Darain)**
 - Capabilities: Accelerator program design and delivery, investor relations, pitch coaching, demo day coordination, cohort management
 - Heartbeat: 172800 seconds (48 hours)
+- Budget: 0 cents per month (local inference — no API cost)
 - Rationale: The accelerator is a core program focused on investment-ready ventures. It requires leadership with investor relations expertise and demo day experience.
 - Instructions path: `programs/director-accelerator.md`
 
 **Director of Impact, Quality & Evaluation**
 - Capabilities: Program evaluation, impact measurement, QA, performance analysis, corrective action management, reporting
 - Heartbeat: 172800 seconds (48 hours)
+- Budget: 0 cents per month (local inference — no API cost)
 - Rationale: This department provides independent oversight of all other departments' quality. Without it, performance degradation goes undetected. This is a nonprofit accountability requirement.
 - Instructions path: `nonprofit/director-impact-quality.md`
 
