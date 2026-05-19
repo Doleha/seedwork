@@ -436,6 +436,7 @@ Pull requests are welcome. Areas especially appreciated:
 - **New instructions files** for additional agent roles or departments
 - **Department templates** for other nonprofit types (food bank, housing org, advocacy)
 - **Integration adapters** for other LLM providers
+- **Messaging channel bridges** for Slack, Telegram, Discord, and other operator/founder communication surfaces
 - **Bug reports** via GitHub Issues
 
 Start with [CONTRIBUTING.md](CONTRIBUTING.md) for the development workflow, validation commands, PR expectations, and project-specific conventions.

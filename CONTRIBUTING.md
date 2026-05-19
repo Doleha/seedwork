@@ -21,6 +21,7 @@ The fastest way to make a useful contribution is to stay within the existing pat
 
 - Fix bugs in the adapter, webhook handler, n8n bridge, or staff UI.
 - Improve setup and deployment tooling.
+- Add new messaging channel bridges such as Slack, Telegram, or Discord.
 - Add or refine agent instructions files.
 - Add new nonprofit department templates or role sets.
 - Improve schema, migrations, or reporting flows.
