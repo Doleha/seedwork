@@ -149,6 +149,14 @@ export const localLlmAdapter: ServerAdapterModule = {
       };
     }
 
+    // Prepend org-profile.md — gives every agent org identity, contacts, and cultural tone
+    try {
+      const orgProfile = readFileSync(join('/app/instructions', 'shared/org-profile.md'), 'utf-8');
+      systemPrompt = orgProfile + '\n\n---\n\n' + systemPrompt;
+    } catch {
+      // org-profile.md not yet generated — continue without it
+    }
+
     const userMessage = `Company ID: ${agent.companyId}
 Agent ID: ${agent.id}
 Agent Name: ${agent.name}

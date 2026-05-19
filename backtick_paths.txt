@@ -1,0 +1,12 @@
+standard/director-finance.md
+standard/director-administration.md
+standard/director-marketing.md
+programs/director-incubator.md
+programs/director-accelerator.md
+nonprofit/director-impact-quality.md
+standard/director-hr.md
+standard/director-it.md
+nonprofit/director-development.md
+nonprofit/director-external-affairs.md
+nonprofit/director-compliance.md
+nonprofit/director-community.md

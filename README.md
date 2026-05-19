@@ -136,24 +136,36 @@ This should display your GPU. If it fails, install or reinstall the NVIDIA Conta
 git clone https://github.com/your-org/incubator-os.git
 cd incubator-os
 
-# 2. Copy and fill in environment variables
-cp .env.example .env
-nano .env   # Fill in all required values (at minimum: PAPERCLIP_API_KEY, DATABASE_URL)
+# 2. Fill in your organization details FIRST
+nano org.config.json   # org name, mission, program directors, cultural tone
 
-# 3. Make scripts executable
+# 3. Fill in technical config
+cp .env.example .env
+nano .env   # PAPERCLIP_API_KEY, DATABASE_URL, and other infrastructure values
+
+# 4. Make scripts executable
 chmod +x setup.sh scripts/*.sh setup/*.sh
 
-# 4. Run setup — this does everything
+# 5. Download the model (one-time, ~20GB — takes 20-40 min on a typical connection)
+bash scripts/download-model.sh
+
+# 6. Run setup — this does everything else
 ./setup.sh
 ```
 
 `setup.sh` will:
-1. Start all Docker services (Paperclip, llama-server, Staff UI, webhook handler)
-2. Wait for Paperclip to be ready (health check, up to 60s)
-3. Wait for llama-server to load the model (health check, up to 6 min — model download on first run takes longer)
-4. Apply all Phase 1 database migrations
-5. Create your Company and Executive Director in Paperclip
-6. Print your dashboard URL and next steps
+1. Validate `org.config.json` and generate `instructions/shared/org-profile.md` (every agent reads this)
+2. Start all Docker services (Paperclip, llama-server, Staff UI, webhook handler)
+3. Wait for Paperclip to be ready (health check, up to 60s)
+4. Wait for llama-server to load the local model into VRAM (up to 120s)
+5. Apply all Phase 1 database migrations
+6. Create your Company and Executive Director in Paperclip using your org config
+7. Print your dashboard URL and next steps
+
+> **Note:** `org.config.json` is what makes this reusable across organizations.
+> Fill it in before running `./setup.sh` — it controls your org name, mission,
+> program director contacts, and cultural communication style.
+> The model file must also exist locally before running setup (step 5 handles this).
 
 ---
 

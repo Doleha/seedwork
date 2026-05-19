@@ -1,0 +1,11 @@
+# Organization Profile
+
+> Auto-generated test
+
+## Who We Are
+**Name:** Your Org Name
+**Mission:** Full mission statement
+## Routing Reference
+- Score 0-40: Decline
+- Score 41-65: Incubator -- contact Br. Fahad
+- Score 66-100: Accelerator -- contact Sr. Darain

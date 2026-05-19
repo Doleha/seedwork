@@ -73,14 +73,14 @@ Once your strategy is approved by the Board, request the following director hire
 - Rationale: Founder recruitment and organizational reputation depend on consistent, high-quality communications. Marketing drives the top of the founder funnel.
 - Instructions path: `standard/director-marketing.md`
 
-**Director of Incubator Programs (Br. Fahad)**
+**Director of Incubator Programs**
 - Capabilities: Incubator program design and delivery, founder intake, mentor coordination, curriculum, cohort management
 - Heartbeat: 172800 seconds (48 hours)
 - Budget: 0 cents per month (local inference — no API cost)
 - Rationale: The incubator is a core program. It requires dedicated leadership to manage intake, track founders, coordinate mentors, and deliver curriculum.
 - Instructions path: `programs/director-incubator.md`
 
-**Director of Accelerator Programs (Sr. Darain)**
+**Director of Accelerator Programs**
 - Capabilities: Accelerator program design and delivery, investor relations, pitch coaching, demo day coordination, cohort management
 - Heartbeat: 172800 seconds (48 hours)
 - Budget: 0 cents per month (local inference — no API cost)

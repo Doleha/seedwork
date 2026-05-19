@@ -1,0 +1,54 @@
+{
+  "org": {
+    "name": "Your Org Name",
+    "tagline": "One-line description",
+    "mission": "Full mission statement",
+    "community_served": "Who you serve",
+    "founded_year": 2024,
+    "ein": "XX-XXXXXXX",
+    "state_of_incorporation": "TX",
+    "fiscal_year_end": "12-31",
+    "website": "https://yourorg.org",
+    "email": "info@yourorg.org",
+    "phone": "",
+    "address": ""
+  },
+  "programs": {
+    "incubator": {
+      "name": "Incubator Program",
+      "director_name": "Br. Fahad",
+      "director_contact": "fahad@yourorg.org",
+      "score_range": [41, 65],
+      "description": "Early-stage founders needing foundational support"
+    },
+    "accelerator": {
+      "name": "Accelerator Program",
+      "director_name": "Sr. Darain",
+      "director_contact": "darain@yourorg.org",
+      "score_range": [66, 100],
+      "description": "Growth-stage founders ready to scale"
+    }
+  },
+  "culture": {
+    "language_primary": "English",
+    "language_secondary": "Arabic",
+    "greetings": {
+      "achievement": "Masha'Allah",
+      "future_plans": "Insha'Allah"
+    },
+    "address_male": "Br.",
+    "address_female": "Sr.",
+    "tone": "Warm, respectful, community-centered"
+  },
+  "social": {
+    "twitter": "",
+    "instagram": "",
+    "linkedin": "",
+    "facebook": "",
+    "youtube": ""
+  },
+  "budget": {
+    "fiscal_year": 2025,
+    "annual_budget_usd": 0
+  }
+}
