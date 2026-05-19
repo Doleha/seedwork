@@ -8,10 +8,10 @@ echo "--- Check 3: setup/init-company.sh syntax ---"
 bash -n setup/init-company.sh && echo "PASS" || echo "FAIL"
 
 echo "--- Check 4: adapter compilation ---"
-if [ -d "adapter/node_modules" ]; then
-  tsc --noEmit -p adapter/tsconfig.json && echo "PASS" || echo "FAIL"
+if [ -f "adapter/node_modules/.bin/tsc" ]; then
+  ./adapter/node_modules/.bin/tsc --noEmit -p adapter/tsconfig.json && echo "PASS" || echo "FAIL"
 else
-  echo "SKIP (node_modules not found in adapter/)"
+  echo "SKIP (tsc not found in adapter/node_modules/.bin/)"
 fi
 
 echo "--- Check 5: Simulate org-profile generation ---"

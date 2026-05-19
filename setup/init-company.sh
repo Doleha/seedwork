@@ -6,17 +6,19 @@ set -e
 
 PAPERCLIP_URL=${PAPERCLIP_API_URL:-http://localhost:3100}
 
-echo "  Creating company..."
-COMPANY_PAYLOAD=$(python3 -c "
-import json
-cfg = json.load(open('org.config.json'))
-o = cfg['org']
-print(json.dumps({'name': o['name'], 'description': o['tagline'], 'goal': o['mission']}))
-")
+ORG_NAME=$(python3 -c "import json; d=json.load(open('org.config.json')); print(d['org']['name'])")
+ORG_MISSION=$(python3 -c "import json; d=json.load(open('org.config.json')); print(d['org']['mission'])")
+ORG_TAGLINE=$(python3 -c "import json; d=json.load(open('org.config.json')); print(d['org']['tagline'])")
+
+echo "  Creating company: $ORG_NAME..."
 COMPANY=$(curl -sf -X POST "$PAPERCLIP_URL/api/companies" \
   -H "Authorization: Bearer $PAPERCLIP_API_KEY" \
   -H "Content-Type: application/json" \
-  -d "$COMPANY_PAYLOAD")
+  -d "{
+    \"name\": \"$ORG_NAME\",
+    \"description\": \"$ORG_TAGLINE\",
+    \"goal\": \"$ORG_MISSION\"
+  }")
 COMPANY_ID=$(echo "$COMPANY" | python3 -c "import sys,json;print(json.load(sys.stdin)['id'])")
 echo "  Company: $COMPANY_ID"
 

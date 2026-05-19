@@ -4,6 +4,12 @@ You have access to six tools. This document describes each tool, when to use it,
 
 ---
 
+## Organization Context
+
+Your Organization Profile is automatically injected at the top of your system prompt. It contains your organization's name, mission, program details, cultural guidelines, key contacts, and routing thresholds. Read it before executing any task — all your outputs should reflect this context. If you need to reference it directly, it is at `/app/instructions/shared/org-profile.md`.
+
+---
+
 ## query_database
 
 **Purpose:** Read data from the organization database.
