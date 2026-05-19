@@ -26,13 +26,15 @@
 - 23. ownership_map
 
 ## Current Phase
-- orientation
+- implementation
 
 ## Phase Emphasis
-- project_brief
-- product_context
+- active_context
+- progress_tracking
 - system_patterns
-- workspace_inventory
+- architectural_memory
+- risk_register
+- lessons_learned
 
 ## Rule
 - Prefer phase-relevant, newer operational context first; fall back to durable memory when it adds stable constraints, lessons, or architecture.

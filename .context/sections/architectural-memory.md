@@ -16,11 +16,15 @@ Add durable architecture constraints, integration boundaries, and key design rat
 - feat: initial project setup
 
 <!-- context-manager:adr-inventory:start -->
+
 ## ADR Inventory
 - No ADR files recorded yet.
+
 <!-- context-manager:adr-inventory:end -->
 
 <!-- context-manager:architecture-observations:start -->
+
 ## Architecture Observations
-- No architecture observations recorded yet.
+- The request_hire tool schema requires budgetMonthlyCents: The request_hire tool schema requires budgetMonthlyCents.
+
 <!-- context-manager:architecture-observations:end -->

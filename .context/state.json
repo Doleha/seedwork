@@ -1,9 +1,9 @@
 {
   "version": "1.0",
-  "updated_at": "2026-05-19T17:12:14.018Z",
+  "updated_at": "2026-05-19T17:12:21.232Z",
   "last_handoff_at": null,
   "last_handoff_commit": null,
-  "active_session_id": null,
+  "active_session_id": "20260519T1712169-1cc6be69",
   "bootstrap": {
     "migrated_memory_bank": false,
     "managed_skills_initialized_at": "2026-05-19T17:12:14.011Z",
@@ -23,19 +23,58 @@
       "canonical_path": "/home/adoleh/Documents/incubator-os/CONTEXT.md",
       "canonical_precedence": "repo-doc",
       "last_seen_fingerprint": {
-        "mtime_ms": 1779210734008.775,
-        "size": 1108
+        "mtime_ms": 1779210736934.4653,
+        "size": 1110
       },
       "last_seen_canonical_content": "# Glossary\n\n## Terms\n- adapter: define this project-specific term or explain why it matters here\n- extensions: define this project-specific term or explain why it matters here\n- incubator-os: define this project-specific term or explain why it matters here\n- instructions: define this project-specific term or explain why it matters here\n- migrations: define this project-specific term or explain why it matters here\n- setup: define this project-specific term or explain why it matters here\n- staff-ui: define this project-specific term or explain why it matters here\n- webhook-handler: define this project-specific term or explain why it matters here",
-      "last_sync_direction": "repo-to-context",
+      "last_sync_direction": "context-to-repo",
       "repo_changed_externally": false,
-      "updated_at": "2026-05-19T17:12:14.010Z"
+      "updated_at": "2026-05-19T17:12:21.232Z"
     },
     "docs/adr": {
       "canonical_path": "/home/adoleh/Documents/incubator-os/docs/adr",
       "canonical_precedence": "repo-dir",
-      "updated_at": "2026-05-19T17:12:14.010Z"
+      "updated_at": "2026-05-19T17:12:16.922Z"
     }
   },
-  "managed_skill_warnings": []
+  "managed_skill_warnings": [],
+  "last_continuation_telemetry": {
+    "telemetry": {
+      "generated_at": "2026-05-19T17:12:16.938Z",
+      "continuation_status": "fresh_start_no_prior_context",
+      "completion_status": "unknown",
+      "resume_recommendation": "start_new",
+      "freshness_status": "fresh",
+      "freshness_score": 1,
+      "validator_counts": {
+        "ok": 3,
+        "warning": 2,
+        "failure": 0,
+        "unknown": 0
+      },
+      "failed_validators": [],
+      "warning_validators": [
+        "verification_completeness",
+        "completion_handoff_markers"
+      ],
+      "required_artifact_failures": [],
+      "repo_document_drift_detected": false,
+      "stale_session_detected": false,
+      "corrected_fields": [],
+      "winning_sources": {
+        "continuation_status": "explicit_user_task_intent",
+        "completion_status": "derived_continuation_logic",
+        "unfinished_work": "canonical_transient_sections",
+        "freshness_status": "continuation_validation_model"
+      }
+    },
+    "operator_diagnostics": {
+      "attention_level": "medium",
+      "trust_blockers": [],
+      "remediation_hints": [],
+      "policy_source": "workspace_state.continuation_policy",
+      "validator_count": 5
+    },
+    "updated_at": "2026-05-19T17:12:21.230Z"
+  }
 }

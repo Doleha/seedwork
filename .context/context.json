@@ -1,6 +1,6 @@
 {
   "version": "1.0",
-  "updated_at": "2026-05-19T17:12:14.014Z",
+  "updated_at": "2026-05-19T17:12:21.139Z",
   "sections": {
     "project_brief": {
       "title": "Project Brief",
@@ -10,10 +10,10 @@
       "updated_at": "2026-05-19T17:12:12.673Z",
       "meta": {
         "update_policy": "bootstrap-or-agent",
-        "last_evaluated_at": "2026-05-19T17:12:14.014Z",
+        "last_evaluated_at": "2026-05-19T17:12:21.139Z",
         "last_evaluated_by": "bootstrap-refresh",
         "last_evaluation_result": "unchanged",
-        "active_session_id": null
+        "active_session_id": "20260519T1712169-1cc6be69"
       }
     },
     "product_context": {
@@ -24,40 +24,40 @@
       "updated_at": "2026-05-19T17:12:12.730Z",
       "meta": {
         "update_policy": "bootstrap-or-agent",
-        "last_evaluated_at": "2026-05-19T17:12:14.014Z",
+        "last_evaluated_at": "2026-05-19T17:12:21.139Z",
         "last_evaluated_by": "bootstrap-refresh",
         "last_evaluation_result": "unchanged",
-        "active_session_id": null
+        "active_session_id": "20260519T1712169-1cc6be69"
       }
     },
     "system_patterns": {
       "title": "System Patterns",
       "role": "architectural and implementation patterns",
-      "content": "# System Patterns\n\n## Repository Tree\n- .env.example\n- .gitignore\n- adapter/\n  - adapter/node_modules/\n  - adapter/package.json\n  - adapter/REGISTRY.md\n  - adapter/src/\n  - adapter/tsconfig.json\n- CLAUDE.md\n- clipmart-template.json\n- docker-compose.n8n.yml\n- docker-compose.yml\n- extensions/\n  - extensions/n8n-bridge/\n- instructions/\n  - instructions/executive-director.md\n  - instructions/nonprofit/\n  - instructions/programs/\n  - instructions/shared/\n  - instructions/standard/\n- migrations/\n  - migrations/phase1/\n  - migrations/phase2/\n  - migrations/phase3/\n- package.json\n- pnpm-lock.yaml\n- pnpm-workspace.yaml\n- README.md\n- scripts/\n  - scripts/activate-phase.sh\n- setup/\n  - setup/init-company.sh\n- setup.sh\n- staff-ui/\n  - staff-ui/dist/\n  - staff-ui/Dockerfile\n  - staff-ui/index.html\n  - staff-ui/nginx.conf\n  - staff-ui/node_modules/\n  - staff-ui/package.json\n  - staff-ui/postcss.config.js\n  - staff-ui/src/\n  - staff-ui/tailwind.config.js\n  - staff-ui/tsconfig.json\n  - staff-ui/vite.config.ts\n- tsconfig.base.json\n- webhook-handler/\n  - webhook-handler/Dockerfile\n  - webhook-handler/node_modules/\n  - webhook-handler/package.json\n  - webhook-handler/src/\n  - webhook-handler/tsconfig.json\n\n## Runtime And Tooling\n- Package: incubator-os\n- Package manager: pnpm\n- Runtimes: node\n\n## Key Subsystems\n- adapter: REGISTRY.md, package.json, src, tsconfig.json\n- extensions: n8n-bridge\n- instructions: executive-director.md, nonprofit, programs, shared, standard\n- migrations: phase1, phase2, phase3\n- scripts: activate-phase.sh\n- setup: init-company.sh\n- staff-ui: Dockerfile, index.html, nginx.conf, package.json, postcss.config.js, src\n- webhook-handler: Dockerfile, package.json, src, tsconfig.json\n\n## Common File Clusters\n- adapter\n- extensions\n- instructions\n- migrations\n- scripts\n- setup\n- staff-ui\n- webhook-handler\n\n## Change Hotspots\n- .env.example (1 touches)\n- .gitignore (1 touches)\n- CLAUDE.md (1 touches)\n- README.md (1 touches)\n- adapter/REGISTRY.md (1 touches)\n- adapter/package.json (1 touches)\n- adapter/src/index.ts (1 touches)\n- adapter/src/paperclip-client.ts (1 touches)\n",
+      "content": "# System Patterns\n\n## Repository Tree\n- .env.example\n- .gitignore\n- adapter/\n  - adapter/node_modules/\n  - adapter/package.json\n  - adapter/REGISTRY.md\n  - adapter/src/\n  - adapter/tsconfig.json\n- CLAUDE.md\n- clipmart-template.json\n- CONTEXT.md\n- docker-compose.n8n.yml\n- docker-compose.yml\n- docs/\n  - docs/adr/\n- extensions/\n  - extensions/n8n-bridge/\n- instructions/\n  - instructions/executive-director.md\n  - instructions/nonprofit/\n  - instructions/programs/\n  - instructions/shared/\n  - instructions/standard/\n- migrations/\n  - migrations/phase1/\n  - migrations/phase2/\n  - migrations/phase3/\n- package.json\n- pnpm-lock.yaml\n- pnpm-workspace.yaml\n- README.md\n- scripts/\n  - scripts/activate-phase.sh\n- setup/\n  - setup/init-company.sh\n- setup.sh\n- staff-ui/\n  - staff-ui/dist/\n  - staff-ui/Dockerfile\n  - staff-ui/index.html\n  - staff-ui/nginx.conf\n  - staff-ui/node_modules/\n  - staff-ui/package.json\n  - staff-ui/postcss.config.js\n  - staff-ui/src/\n  - staff-ui/tailwind.config.js\n  - staff-ui/tsconfig.json\n  - staff-ui/vite.config.ts\n- tsconfig.base.json\n- webhook-handler/\n  - webhook-handler/Dockerfile\n  - webhook-handler/node_modules/\n  - webhook-handler/package.json\n  - webhook-handler/src/\n  - webhook-handler/tsconfig.json\n\n## Runtime And Tooling\n- Package: incubator-os\n- Package manager: pnpm\n- Runtimes: node\n\n## Key Subsystems\n- adapter: REGISTRY.md, package.json, src, tsconfig.json\n- extensions: n8n-bridge\n- instructions: executive-director.md, nonprofit, programs, shared, standard\n- migrations: phase1, phase2, phase3\n- scripts: activate-phase.sh\n- setup: init-company.sh\n- staff-ui: Dockerfile, index.html, nginx.conf, package.json, postcss.config.js, src\n- webhook-handler: Dockerfile, package.json, src, tsconfig.json\n\n## Common File Clusters\n- adapter\n- extensions\n- instructions\n- migrations\n- scripts\n- setup\n- staff-ui\n- webhook-handler\n\n## Change Hotspots\n- .env.example (1 touches)\n- .gitignore (1 touches)\n- CLAUDE.md (1 touches)\n- README.md (1 touches)\n- adapter/REGISTRY.md (1 touches)\n- adapter/package.json (1 touches)\n- adapter/src/index.ts (1 touches)\n- adapter/src/paperclip-client.ts (1 touches)\n",
       "source": "auto-bootstrap",
-      "updated_at": "2026-05-19T17:12:12.790Z",
+      "updated_at": "2026-05-19T17:12:14.216Z",
       "meta": {
         "update_policy": "bootstrap-or-agent",
-        "last_evaluated_at": "2026-05-19T17:12:14.014Z",
+        "last_evaluated_at": "2026-05-19T17:12:21.139Z",
         "last_evaluated_by": "bootstrap-refresh",
         "last_evaluation_result": "unchanged",
-        "active_session_id": null
+        "active_session_id": "20260519T1712169-1cc6be69"
       }
     },
     "architectural_memory": {
       "title": "Architectural Memory",
       "role": "architectural rationale and system-level guidance",
-      "content": "# Architectural Memory\n\n## Starter Summary\nStarter architecture summary: Node/JavaScript workspace detected from package.json. Operational or utility automation is present in scripts/. Repository documentation exists and should refine the starter context. Historically active files include .env.example, .gitignore, CLAUDE.md. Recurring commit topics include feat, initial, project, setup.\n\n## Derived Facts\n- No integration facts detected\n- Deployment surface: docker\n- No likely public contracts detected\n- Verification surface: package-script:typecheck\n\n## Notes\nAdd durable architecture constraints, integration boundaries, and key design rationale here.\n\n## Commit History Signals\n- feat: initial project setup\n\n<!-- context-manager:adr-inventory:start -->\n## ADR Inventory\n- No ADR files recorded yet.\n<!-- context-manager:adr-inventory:end -->\n\n<!-- context-manager:architecture-observations:start -->\n## Architecture Observations\n- No architecture observations recorded yet.\n<!-- context-manager:architecture-observations:end -->\n",
+      "content": "# Architectural Memory\n\n## Starter Summary\nStarter architecture summary: Node/JavaScript workspace detected from package.json. Operational or utility automation is present in scripts/. Repository documentation exists and should refine the starter context. Historically active files include .env.example, .gitignore, CLAUDE.md. Recurring commit topics include feat, initial, project, setup.\n\n## Derived Facts\n- No integration facts detected\n- Deployment surface: docker\n- No likely public contracts detected\n- Verification surface: package-script:typecheck\n\n## Notes\nAdd durable architecture constraints, integration boundaries, and key design rationale here.\n\n## Commit History Signals\n- feat: initial project setup\n\n<!-- context-manager:adr-inventory:start -->\n\n## ADR Inventory\n- No ADR files recorded yet.\n\n<!-- context-manager:adr-inventory:end -->\n\n<!-- context-manager:architecture-observations:start -->\n\n## Architecture Observations\n- The request_hire tool schema requires budgetMonthlyCents: The request_hire tool schema requires budgetMonthlyCents.\n\n<!-- context-manager:architecture-observations:end -->",
       "source": "managed-skill-sync",
-      "updated_at": "2026-05-19T17:12:14.011Z",
+      "updated_at": "2026-05-19T17:12:16.935Z",
       "meta": {
         "managed_by": "context-manager",
         "canonical_skill_artifact": true,
         "update_policy": "bootstrap-or-agent",
-        "last_evaluated_at": "2026-05-19T17:12:14.014Z",
+        "last_evaluated_at": "2026-05-19T17:12:21.139Z",
         "last_evaluated_by": "bootstrap-refresh",
         "last_evaluation_result": "unchanged",
-        "active_session_id": null
+        "active_session_id": "20260519T1712169-1cc6be69"
       }
     },
     "constraints": {
@@ -68,10 +68,10 @@
       "updated_at": "2026-05-19T17:12:12.946Z",
       "meta": {
         "update_policy": "bootstrap-or-agent",
-        "last_evaluated_at": "2026-05-19T17:12:14.014Z",
+        "last_evaluated_at": "2026-05-19T17:12:21.139Z",
         "last_evaluated_by": "bootstrap-refresh",
         "last_evaluation_result": "unchanged",
-        "active_session_id": null
+        "active_session_id": "20260519T1712169-1cc6be69"
       }
     },
     "invariants": {
@@ -82,10 +82,10 @@
       "updated_at": "2026-05-19T17:12:13.013Z",
       "meta": {
         "update_policy": "bootstrap-or-agent",
-        "last_evaluated_at": "2026-05-19T17:12:14.014Z",
+        "last_evaluated_at": "2026-05-19T17:12:21.139Z",
         "last_evaluated_by": "bootstrap-refresh",
         "last_evaluation_result": "unchanged",
-        "active_session_id": null
+        "active_session_id": "20260519T1712169-1cc6be69"
       }
     },
     "environment_map": {
@@ -96,24 +96,24 @@
       "updated_at": "2026-05-19T17:12:13.078Z",
       "meta": {
         "update_policy": "bootstrap-or-agent",
-        "last_evaluated_at": "2026-05-19T17:12:14.014Z",
+        "last_evaluated_at": "2026-05-19T17:12:21.139Z",
         "last_evaluated_by": "bootstrap-refresh",
         "last_evaluation_result": "unchanged",
-        "active_session_id": null
+        "active_session_id": "20260519T1712169-1cc6be69"
       }
     },
     "ownership_map": {
       "title": "Ownership Map",
       "role": "responsibility boundaries for core, legacy, and sensitive areas",
-      "content": "# Ownership Map\n\n## Responsibility Boundaries\n- Hotspot: .env.example (1 historical touches)\n- Hotspot: .gitignore (1 historical touches)\n- Hotspot: CLAUDE.md (1 historical touches)\n- Hotspot: README.md (1 historical touches)\n- Hotspot: adapter/REGISTRY.md (1 historical touches)\n- Hotspot: adapter/package.json (1 historical touches)\n",
+      "content": "# Ownership Map\n\n## Responsibility Boundaries\n- Hotspot: instructions/executive-director.md (2 historical touches)\n- Hotspot: .context/architecture-observations.json (1 historical touches)\n- Hotspot: .context/context.json (1 historical touches)\n- Hotspot: .context/decision-candidates.json (1 historical touches)\n- Hotspot: .context/decisions.json (1 historical touches)\n- Hotspot: .context/derived/repo-facts.json (1 historical touches)\n",
       "source": "auto-bootstrap",
-      "updated_at": "2026-05-19T17:12:13.144Z",
+      "updated_at": "2026-05-19T17:12:14.596Z",
       "meta": {
         "update_policy": "bootstrap-or-agent",
-        "last_evaluated_at": "2026-05-19T17:12:14.014Z",
+        "last_evaluated_at": "2026-05-19T17:12:21.139Z",
         "last_evaluated_by": "bootstrap-refresh",
         "last_evaluation_result": "unchanged",
-        "active_session_id": null
+        "active_session_id": "20260519T1712169-1cc6be69"
       }
     },
     "interface_contracts": {
@@ -124,10 +124,10 @@
       "updated_at": "2026-05-19T17:12:13.204Z",
       "meta": {
         "update_policy": "bootstrap-or-agent",
-        "last_evaluated_at": "2026-05-19T17:12:14.014Z",
+        "last_evaluated_at": "2026-05-19T17:12:21.139Z",
         "last_evaluated_by": "bootstrap-refresh",
         "last_evaluation_result": "unchanged",
-        "active_session_id": null
+        "active_session_id": "20260519T1712169-1cc6be69"
       }
     },
     "context_workflow": {
@@ -138,10 +138,10 @@
       "updated_at": "2026-05-19T17:12:13.264Z",
       "meta": {
         "update_policy": "bootstrap-or-agent",
-        "last_evaluated_at": "2026-05-19T17:12:14.014Z",
+        "last_evaluated_at": "2026-05-19T17:12:21.139Z",
         "last_evaluated_by": "bootstrap-refresh",
         "last_evaluation_result": "unchanged",
-        "active_session_id": null
+        "active_session_id": "20260519T1712169-1cc6be69"
       }
     },
     "glossary": {
@@ -154,24 +154,24 @@
         "managed_by": "context-manager",
         "canonical_skill_artifact": true,
         "update_policy": "bootstrap-or-agent",
-        "last_evaluated_at": "2026-05-19T17:12:14.014Z",
+        "last_evaluated_at": "2026-05-19T17:12:21.139Z",
         "last_evaluated_by": "bootstrap-refresh",
         "last_evaluation_result": "unchanged",
-        "active_session_id": null
+        "active_session_id": "20260519T1712169-1cc6be69"
       }
     },
     "lessons_learned": {
       "title": "Lessons Learned",
       "role": "durable lessons, pitfalls, and anti-patterns",
-      "content": "# Lessons Learned\n\n## Current Durable Lessons\n- No durable lessons recorded yet\n\n## Session-Derived Lessons\n- No lesson candidates surfaced in the active session\n",
+      "content": "# Lessons Learned\n\n## Current Durable Lessons\n- No durable lessons recorded yet\n\n## Session-Derived Lessons\n- When an LLM tool schema has required numeric fields, mirror those fields explicitly in the corresponding instructions to avoid hallucinated defaults or validation failures.\n- The request_hire tool schema requires budgetMonthlyCents: The request_hire tool schema requires budgetMonthlyCents.\n- The request_hire tool schema requires budgetMonthlyCents.\n- The Executive Director Phase 1 hiring section originally omitted budgets for all director hires.\n- The Executive Director instructions now include an explicit 0-cent monthly budget for each Phase 1 director hire.\n- Decision pressure: Keep budget guidance in the instructions file so the model has deterministic values for required tool arguments.\n- Decision pressure: The request_hire tool schema requires budgetMonthlyCents\n- Recent execution pattern: Read adapter/src/tools.ts to confirm request_hire requires budgetMonthlyCents.\n- Recent execution pattern: Edited instructions/executive-director.md to add six explicit Phase 1 budget lines.\n- Recent execution pattern: Validated the updated Executive Director file contains six budget entries.\n",
       "source": "generated-store",
-      "updated_at": "2026-05-19T17:12:14.012Z",
+      "updated_at": "2026-05-19T17:12:16.933Z",
       "meta": {
         "update_policy": "generated-store",
-        "last_evaluated_at": "2026-05-19T17:12:14.014Z",
+        "last_evaluated_at": "2026-05-19T17:12:21.139Z",
         "last_evaluated_by": "bootstrap-refresh",
-        "last_evaluation_result": "updated",
-        "active_session_id": null
+        "last_evaluation_result": "unchanged",
+        "active_session_id": "20260519T1712169-1cc6be69"
       }
     },
     "open_questions": {
@@ -182,122 +182,122 @@
       "updated_at": "2026-05-19T17:12:14.012Z",
       "meta": {
         "update_policy": "live-session",
-        "last_evaluated_at": "2026-05-19T17:12:14.014Z",
+        "last_evaluated_at": "2026-05-19T17:12:21.139Z",
         "last_evaluated_by": "bootstrap-refresh",
-        "last_evaluation_result": "updated",
-        "active_session_id": null
+        "last_evaluation_result": "unchanged",
+        "active_session_id": "20260519T1712169-1cc6be69"
       }
     },
     "risk_register": {
       "title": "Risk Register",
       "role": "fragile areas, debt hotspots, and known failure modes",
-      "content": "# Risk Register\n\n## Known Risks\n- High-risk area: .env.example\n- High-risk area: .gitignore\n- High-risk area: CLAUDE.md\n- High-risk area: README.md\n- High-risk area: adapter/REGISTRY.md\n- High-risk area: adapter/package.json\n",
+      "content": "# Risk Register\n\n## Known Risks\n- Unresolved decision candidate: Keep budget guidance in the instructions file so the model has deterministic values for required tool arguments.\n- Unresolved decision candidate: The request_hire tool schema requires budgetMonthlyCents\n- Emerging lesson not yet formalized: When an LLM tool schema has required numeric fields, mirror those fields explicitly in the corresponding instructions to avoid hallucinated defaults or validation failures.\n- High-risk area: .env.example\n- High-risk area: .gitignore\n- High-risk area: CLAUDE.md\n- High-risk area: README.md\n- High-risk area: adapter/REGISTRY.md\n- High-risk area: adapter/package.json\n- Files currently in motion: instructions/executive-director.md\n",
       "source": "generated-store",
-      "updated_at": "2026-05-19T17:12:14.013Z",
+      "updated_at": "2026-05-19T17:12:16.934Z",
       "meta": {
         "update_policy": "generated-store",
-        "last_evaluated_at": "2026-05-19T17:12:14.014Z",
+        "last_evaluated_at": "2026-05-19T17:12:21.139Z",
         "last_evaluated_by": "bootstrap-refresh",
-        "last_evaluation_result": "updated",
-        "active_session_id": null
+        "last_evaluation_result": "unchanged",
+        "active_session_id": "20260519T1712169-1cc6be69"
       }
     },
     "verification_strategy": {
       "title": "Verification Strategy",
       "role": "how correctness is checked in this workspace",
-      "content": "# Verification Strategy\n\n## Durable Verification State\n- Completed: none\n- Pending: none\n- Planned: none\n\n## Related Files\n- No verification-linked files recorded\n\n## Verification Notes\n- No durable verification notes recorded\n\n## Session Snapshot\n- Session completed: none\n- Session pending: none\n- Session planned: none\n",
+      "content": "# Verification Strategy\n\n## Durable Verification State\n- Completed: Verified six explicit budget lines are present in instructions/executive-director.md.\n- Pending: none\n- Planned: Confirm the Phase 1 Executive Director hiring section contains one explicit budget line per director hire.\n\n## Related Files\n- instructions/executive-director.md\n- adapter/src/tools.ts\n\n## Verification Notes\n- No durable verification notes recorded\n\n## Session Snapshot\n- Session completed: Verified six explicit budget lines are present in instructions/executive-director.md.\n- Session pending: none\n- Session planned: Confirm the Phase 1 Executive Director hiring section contains one explicit budget line per director hire.\n",
       "source": "generated-store",
-      "updated_at": "2026-05-19T17:12:14.014Z",
+      "updated_at": "2026-05-19T17:12:16.934Z",
       "meta": {
         "update_policy": "generated-store",
-        "last_evaluated_at": "2026-05-19T17:12:14.014Z",
+        "last_evaluated_at": "2026-05-19T17:12:21.139Z",
         "last_evaluated_by": "bootstrap-refresh",
-        "last_evaluation_result": "updated",
-        "active_session_id": null
+        "last_evaluation_result": "unchanged",
+        "active_session_id": "20260519T1712169-1cc6be69"
       }
     },
     "current_task_intent": {
       "title": "Current Task Intent",
       "role": "what the present effort is trying to achieve and why now",
-      "content": "# Current Task Intent\n\n## Active Objective\n- No current goal recorded\n\n## Task Summary\n- No task summary recorded\n\n## Phase\n- orientation\n",
+      "content": "# Current Task Intent\n\n## Active Objective\n- Initialize context management for the current workspace and current task state.\n\n## Task Summary\n- Start a context-manager session for the current workspace while tracking the Executive Director instructions update that adds explicit Phase 1 hire budgets required by request_hire.\n\n## Phase\n- implementation\n",
       "source": "session-state",
-      "updated_at": "2026-05-19T17:12:14.012Z",
+      "updated_at": "2026-05-19T17:12:16.933Z",
       "meta": {
         "update_policy": "live-session",
-        "last_evaluated_at": "2026-05-19T17:12:14.014Z",
+        "last_evaluated_at": "2026-05-19T17:12:21.139Z",
         "last_evaluated_by": "bootstrap-refresh",
-        "last_evaluation_result": "updated",
-        "active_session_id": null
+        "last_evaluation_result": "unchanged",
+        "active_session_id": "20260519T1712169-1cc6be69"
       }
     },
     "historical_summaries": {
       "title": "Historical Summaries",
       "role": "compressed summaries of recent project evolution",
-      "content": "# Historical Summaries\n\n## Recent Evolution\n- No recent historical summaries recorded\n",
+      "content": "# Historical Summaries\n\n## Recent Evolution\n- Open decision candidates: 2\n- Open lesson candidates: 1\n- Open architecture observations: 1\n",
       "source": "generated-store",
-      "updated_at": "2026-05-19T17:12:14.014Z",
+      "updated_at": "2026-05-19T17:12:16.934Z",
       "meta": {
         "update_policy": "generated-store",
-        "last_evaluated_at": "2026-05-19T17:12:14.014Z",
+        "last_evaluated_at": "2026-05-19T17:12:21.139Z",
         "last_evaluated_by": "bootstrap-refresh",
-        "last_evaluation_result": "updated",
-        "active_session_id": null
+        "last_evaluation_result": "unchanged",
+        "active_session_id": "20260519T1712169-1cc6be69"
       }
     },
     "retrieval_priority": {
       "title": "Retrieval Priority",
       "role": "context precedence rules when memory sources conflict",
-      "content": "# Retrieval Priority\n\n## Base Precedence\n- 1. user_preferences\n- 2. context_workflow\n- 3. current_task_intent\n- 4. active_context\n- 5. progress_tracking\n- 6. constraints\n- 7. invariants\n- 8. risk_register\n- 9. verification_strategy\n- 10. environment_map\n- 11. interface_contracts\n- 12. system_patterns\n- 13. architectural_memory\n- 14. project_brief\n- 15. product_context\n- 16. lessons_learned\n- 17. decisions\n- 18. historical_summaries\n- 19. recent_handoff\n- 20. workspace_inventory\n- 21. glossary\n- 22. open_questions\n- 23. ownership_map\n\n## Current Phase\n- orientation\n\n## Phase Emphasis\n- project_brief\n- product_context\n- system_patterns\n- workspace_inventory\n\n## Rule\n- Prefer phase-relevant, newer operational context first; fall back to durable memory when it adds stable constraints, lessons, or architecture.\n",
+      "content": "# Retrieval Priority\n\n## Base Precedence\n- 1. user_preferences\n- 2. context_workflow\n- 3. current_task_intent\n- 4. active_context\n- 5. progress_tracking\n- 6. constraints\n- 7. invariants\n- 8. risk_register\n- 9. verification_strategy\n- 10. environment_map\n- 11. interface_contracts\n- 12. system_patterns\n- 13. architectural_memory\n- 14. project_brief\n- 15. product_context\n- 16. lessons_learned\n- 17. decisions\n- 18. historical_summaries\n- 19. recent_handoff\n- 20. workspace_inventory\n- 21. glossary\n- 22. open_questions\n- 23. ownership_map\n\n## Current Phase\n- implementation\n\n## Phase Emphasis\n- active_context\n- progress_tracking\n- system_patterns\n- architectural_memory\n- risk_register\n- lessons_learned\n\n## Rule\n- Prefer phase-relevant, newer operational context first; fall back to durable memory when it adds stable constraints, lessons, or architecture.\n",
       "source": "generated-store",
-      "updated_at": "2026-05-19T17:12:14.013Z",
+      "updated_at": "2026-05-19T17:12:16.934Z",
       "meta": {
         "update_policy": "generated-store",
-        "last_evaluated_at": "2026-05-19T17:12:14.014Z",
+        "last_evaluated_at": "2026-05-19T17:12:21.139Z",
         "last_evaluated_by": "bootstrap-refresh",
-        "last_evaluation_result": "updated",
-        "active_session_id": null
+        "last_evaluation_result": "unchanged",
+        "active_session_id": "20260519T1712169-1cc6be69"
       }
     },
     "active_context": {
       "title": "Active Context",
       "role": "current goals, blockers, and short-lived working state",
-      "content": "# Active Context\n\n## Current Goal\n- No current goal recorded\n\n## Focus Files\n- No focus files recorded\n\n## Focus Symbols\n- No focus symbols recorded\n\n## Recent Findings\n- No findings recorded\n\n## Open Questions\n- No open questions recorded\n",
+      "content": "# Active Context\n\n## Current Goal\n- Initialize context management for the current workspace and current task state.\n\n## Focus Files\n- instructions/executive-director.md\n- adapter/src/tools.ts\n\n## Focus Symbols\n- TOOL_DEFINITIONS\n- request_hire\n\n## Recent Findings\n- The request_hire tool schema requires budgetMonthlyCents.\n- The Executive Director Phase 1 hiring section originally omitted budgets for all director hires.\n- The Executive Director instructions now include an explicit 0-cent monthly budget for each Phase 1 director hire.\n\n## Open Questions\n- No open questions recorded\n",
       "source": "session-state",
-      "updated_at": "2026-05-19T17:12:14.012Z",
+      "updated_at": "2026-05-19T17:12:16.933Z",
       "meta": {
         "update_policy": "live-session",
-        "last_evaluated_at": "2026-05-19T17:12:14.014Z",
+        "last_evaluated_at": "2026-05-19T17:12:21.139Z",
         "last_evaluated_by": "bootstrap-refresh",
-        "last_evaluation_result": "updated",
-        "active_session_id": null
+        "last_evaluation_result": "unchanged",
+        "active_session_id": "20260519T1712169-1cc6be69"
       }
     },
     "progress_tracking": {
       "title": "Progress Tracking",
       "role": "done, doing, and next execution state",
-      "content": "# Progress Tracking\n\n## Phase\n- orientation\n\n## Plan\n- No plan recorded\n\n## Recent Actions\n- No recent actions recorded\n\n## Verification\n- Completed: none\n- Pending: none\n- Planned: none\n\n## Changed Files\n- No changed files recorded\n\n## Candidate Decisions\n- None recorded\n\n## Candidate Lessons\n- None recorded\n",
+      "content": "# Progress Tracking\n\n## Phase\n- implementation\n\n## Plan\n- [x] Confirm request_hire required fields against Executive Director instructions\n- [x] Add explicit budget lines to Phase 1 director hire entries\n- [ ] Start MCP context session for this task\n\n## Recent Actions\n- Read adapter/src/tools.ts to confirm request_hire requires budgetMonthlyCents.\n- Edited instructions/executive-director.md to add six explicit Phase 1 budget lines.\n- Validated the updated Executive Director file contains six budget entries.\n\n## Verification\n- Completed: Verified six explicit budget lines are present in instructions/executive-director.md.\n- Pending: none\n- Planned: Confirm the Phase 1 Executive Director hiring section contains one explicit budget line per director hire.\n\n## Changed Files\n- instructions/executive-director.md\n\n## Candidate Decisions\n- Keep budget guidance in the instructions file so the model has deterministic values for required tool arguments.\n- The request_hire tool schema requires budgetMonthlyCents\n\n## Candidate Lessons\n- When an LLM tool schema has required numeric fields, mirror those fields explicitly in the corresponding instructions to avoid hallucinated defaults or validation failures.\n",
       "source": "session-state",
-      "updated_at": "2026-05-19T17:12:14.012Z",
+      "updated_at": "2026-05-19T17:12:16.933Z",
       "meta": {
         "update_policy": "live-session",
-        "last_evaluated_at": "2026-05-19T17:12:14.014Z",
+        "last_evaluated_at": "2026-05-19T17:12:21.139Z",
         "last_evaluated_by": "bootstrap-refresh",
-        "last_evaluation_result": "updated",
-        "active_session_id": null
+        "last_evaluation_result": "unchanged",
+        "active_session_id": "20260519T1712169-1cc6be69"
       }
     },
     "workspace_inventory": {
       "title": "Workspace Inventory",
       "role": "repo tree and starter inventory",
-      "content": "# Workspace Inventory\n\n## Top-Level Tree\n- .env.example\n- .gitignore\n- adapter/\n  - adapter/node_modules/\n  - adapter/package.json\n  - adapter/REGISTRY.md\n  - adapter/src/\n  - adapter/tsconfig.json\n- CLAUDE.md\n- clipmart-template.json\n- docker-compose.n8n.yml\n- docker-compose.yml\n- extensions/\n  - extensions/n8n-bridge/\n- instructions/\n  - instructions/executive-director.md\n  - instructions/nonprofit/\n  - instructions/programs/\n  - instructions/shared/\n  - instructions/standard/\n- migrations/\n  - migrations/phase1/\n  - migrations/phase2/\n  - migrations/phase3/\n- package.json\n- pnpm-lock.yaml\n- pnpm-workspace.yaml\n- README.md\n- scripts/\n  - scripts/activate-phase.sh\n- setup/\n  - setup/init-company.sh\n- setup.sh\n- staff-ui/\n  - staff-ui/dist/\n  - staff-ui/Dockerfile\n  - staff-ui/index.html\n  - staff-ui/nginx.conf\n  - staff-ui/node_modules/\n  - staff-ui/package.json\n  - staff-ui/postcss.config.js\n  - staff-ui/src/\n  - staff-ui/tailwind.config.js\n  - staff-ui/tsconfig.json\n  - staff-ui/vite.config.ts\n- tsconfig.base.json\n- webhook-handler/\n  - webhook-handler/Dockerfile\n  - webhook-handler/node_modules/\n  - webhook-handler/package.json\n  - webhook-handler/src/\n  - webhook-handler/tsconfig.json\n\n## Primary Surfaces\n- adapter\n- extensions\n- instructions\n- migrations\n- setup\n- staff-ui\n- webhook-handler\n\n## Key Subsystems\n- adapter: REGISTRY.md, package.json, src, tsconfig.json\n- extensions: n8n-bridge\n- instructions: executive-director.md, nonprofit, programs, shared, standard\n- migrations: phase1, phase2, phase3\n- scripts: activate-phase.sh\n- setup: init-company.sh\n- staff-ui: Dockerfile, index.html, nginx.conf, package.json, postcss.config.js, src\n- webhook-handler: Dockerfile, package.json, src, tsconfig.json\n\n## Top-Level Entries\n- .env.example\n- .gitignore\n- CLAUDE.md\n- README.md\n- adapter\n- clipmart-template.json\n- docker-compose.n8n.yml\n- docker-compose.yml\n- extensions\n- instructions\n- migrations\n- package.json\n- pnpm-lock.yaml\n- pnpm-workspace.yaml\n- scripts\n- setup\n- setup.sh\n- staff-ui\n- tsconfig.base.json\n- webhook-handler\n\n## Frequently Changed Files\n- .env.example (1 touches)\n- .gitignore (1 touches)\n- CLAUDE.md (1 touches)\n- README.md (1 touches)\n- adapter/REGISTRY.md (1 touches)\n- adapter/package.json (1 touches)\n- adapter/src/index.ts (1 touches)\n- adapter/src/paperclip-client.ts (1 touches)\n- adapter/src/quality.ts (1 touches)\n- adapter/src/semaphore.ts (1 touches)\n",
+      "content": "# Workspace Inventory\n\n## Top-Level Tree\n- .env.example\n- .gitignore\n- adapter/\n  - adapter/node_modules/\n  - adapter/package.json\n  - adapter/REGISTRY.md\n  - adapter/src/\n  - adapter/tsconfig.json\n- CLAUDE.md\n- clipmart-template.json\n- CONTEXT.md\n- docker-compose.n8n.yml\n- docker-compose.yml\n- docs/\n  - docs/adr/\n- extensions/\n  - extensions/n8n-bridge/\n- instructions/\n  - instructions/executive-director.md\n  - instructions/nonprofit/\n  - instructions/programs/\n  - instructions/shared/\n  - instructions/standard/\n- migrations/\n  - migrations/phase1/\n  - migrations/phase2/\n  - migrations/phase3/\n- package.json\n- pnpm-lock.yaml\n- pnpm-workspace.yaml\n- README.md\n- scripts/\n  - scripts/activate-phase.sh\n- setup/\n  - setup/init-company.sh\n- setup.sh\n- staff-ui/\n  - staff-ui/dist/\n  - staff-ui/Dockerfile\n  - staff-ui/index.html\n  - staff-ui/nginx.conf\n  - staff-ui/node_modules/\n  - staff-ui/package.json\n  - staff-ui/postcss.config.js\n  - staff-ui/src/\n  - staff-ui/tailwind.config.js\n  - staff-ui/tsconfig.json\n  - staff-ui/vite.config.ts\n- tsconfig.base.json\n- webhook-handler/\n  - webhook-handler/Dockerfile\n  - webhook-handler/node_modules/\n  - webhook-handler/package.json\n  - webhook-handler/src/\n  - webhook-handler/tsconfig.json\n\n## Primary Surfaces\n- adapter\n- extensions\n- instructions\n- migrations\n- setup\n- staff-ui\n- webhook-handler\n\n## Key Subsystems\n- adapter: REGISTRY.md, package.json, src, tsconfig.json\n- extensions: n8n-bridge\n- instructions: executive-director.md, nonprofit, programs, shared, standard\n- migrations: phase1, phase2, phase3\n- scripts: activate-phase.sh\n- setup: init-company.sh\n- staff-ui: Dockerfile, index.html, nginx.conf, package.json, postcss.config.js, src\n- webhook-handler: Dockerfile, package.json, src, tsconfig.json\n\n## Top-Level Entries\n- .env.example\n- .gitignore\n- CLAUDE.md\n- README.md\n- adapter\n- clipmart-template.json\n- docker-compose.n8n.yml\n- docker-compose.yml\n- extensions\n- instructions\n- migrations\n- package.json\n- pnpm-lock.yaml\n- pnpm-workspace.yaml\n- scripts\n- setup\n- setup.sh\n- staff-ui\n- tsconfig.base.json\n- webhook-handler\n\n## Frequently Changed Files\n- .env.example (1 touches)\n- .gitignore (1 touches)\n- CLAUDE.md (1 touches)\n- README.md (1 touches)\n- adapter/REGISTRY.md (1 touches)\n- adapter/package.json (1 touches)\n- adapter/src/index.ts (1 touches)\n- adapter/src/paperclip-client.ts (1 touches)\n- adapter/src/quality.ts (1 touches)\n- adapter/src/semaphore.ts (1 touches)\n",
       "source": "auto-bootstrap",
-      "updated_at": "2026-05-19T17:12:13.948Z",
+      "updated_at": "2026-05-19T17:12:15.425Z",
       "meta": {
         "update_policy": "bootstrap-or-agent",
-        "last_evaluated_at": "2026-05-19T17:12:14.014Z",
+        "last_evaluated_at": "2026-05-19T17:12:21.139Z",
         "last_evaluated_by": "bootstrap-refresh",
         "last_evaluation_result": "unchanged",
-        "active_session_id": null
+        "active_session_id": "20260519T1712169-1cc6be69"
       }
     },
     "user_preferences": {
@@ -308,10 +308,10 @@
       "updated_at": "2026-05-19T17:12:14.007Z",
       "meta": {
         "update_policy": "bootstrap-or-agent",
-        "last_evaluated_at": "2026-05-19T17:12:14.014Z",
+        "last_evaluated_at": "2026-05-19T17:12:21.139Z",
         "last_evaluated_by": "bootstrap-refresh",
         "last_evaluation_result": "unchanged",
-        "active_session_id": null
+        "active_session_id": "20260519T1712169-1cc6be69"
       }
     }
   }

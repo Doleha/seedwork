@@ -3,6 +3,7 @@
 This file can contain human-authored notes. The managed glossary block below is maintained automatically by context-manager.
 
 <!-- context-manager:glossary:start -->
+
 # Glossary
 
 ## Terms
@@ -14,6 +15,7 @@ This file can contain human-authored notes. The managed glossary block below is 
 - setup: define this project-specific term or explain why it matters here
 - staff-ui: define this project-specific term or explain why it matters here
 - webhook-handler: define this project-specific term or explain why it matters here
+
 <!-- context-manager:glossary:end -->
 
 ## Notes

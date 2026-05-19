@@ -1,4 +1,6 @@
 # Historical Summaries
 
 ## Recent Evolution
-- No recent historical summaries recorded
+- Open decision candidates: 2
+- Open lesson candidates: 1
+- Open architecture observations: 1

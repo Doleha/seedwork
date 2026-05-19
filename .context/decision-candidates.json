@@ -1,5 +1,53 @@
 {
   "version": "1.0",
-  "updated_at": "2026-05-19T17:12:14.015Z",
-  "decision_candidates": []
+  "updated_at": "2026-05-19T17:12:21.140Z",
+  "decision_candidates": [
+    {
+      "id": "20260519171216-74d80b08",
+      "title": "Keep budget guidance in the instructions file so the model has deterministic values for required tool arguments.",
+      "summary": "Keep budget guidance in the instructions file so the model has deterministic values for required tool arguments.",
+      "rationale_hint": "",
+      "confidence": "medium",
+      "related_files": [
+        "instructions/executive-director.md",
+        "adapter/src/tools.ts"
+      ],
+      "related_symbols": [
+        "TOOL_DEFINITIONS",
+        "request_hire"
+      ],
+      "tags": [
+        "session-candidate"
+      ],
+      "source": "session-string",
+      "status": "open",
+      "created_at": "2026-05-19T17:12:16.931Z",
+      "updated_at": "2026-05-19T17:12:16.931Z"
+    },
+    {
+      "id": "20260519171216-d8910585",
+      "title": "The request_hire tool schema requires budgetMonthlyCents",
+      "summary": "The request_hire tool schema requires budgetMonthlyCents",
+      "rationale_hint": "Initialize context management for the current workspace and current task state. | Start a context-manager session for the current workspace while tracking the Executive Director instructions update that adds explicit Phase 1 hire budgets required by request_hire. | Recent actions: Read adapter/src/tools.ts to confirm request_hire requires budgetMonthlyCents. | Edited instructions/executive-director.md to add six explicit Phase 1 budget lines. | Validated the updated Executive Director file contains six budget entries.",
+      "confidence": "medium",
+      "related_files": [
+        "instructions/executive-director.md",
+        "adapter/src/tools.ts"
+      ],
+      "related_symbols": [
+        "TOOL_DEFINITIONS",
+        "request_hire"
+      ],
+      "tags": [
+        "session-candidate",
+        "session-inferred",
+        "recent-finding-derived",
+        "finding-derived"
+      ],
+      "source": "session-string",
+      "status": "open",
+      "created_at": "2026-05-19T17:12:16.931Z",
+      "updated_at": "2026-05-19T17:12:16.931Z"
+    }
+  ]
 }

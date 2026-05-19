@@ -1,5 +1,25 @@
 {
   "version": "1.0",
-  "updated_at": "2026-05-19T17:12:14.015Z",
-  "lesson_candidates": []
+  "updated_at": "2026-05-19T17:12:21.140Z",
+  "lesson_candidates": [
+    {
+      "id": "20260519171216-e184039c",
+      "title": "When an LLM tool schema has required numeric fields, mirror those fields explicitly in the corresponding instructions to avoid hallucinated defaults or validation failures.",
+      "summary": "When an LLM tool schema has required numeric fields, mirror those fields explicitly in the corresponding instructions to avoid hallucinated defaults or validation failures.",
+      "lesson_hint": "When an LLM tool schema has required numeric fields, mirror those fields explicitly in the corresponding instructions to avoid hallucinated defaults or validation failures.",
+      "impact_hint": "",
+      "confidence": "medium",
+      "related_files": [
+        "instructions/executive-director.md",
+        "adapter/src/tools.ts"
+      ],
+      "tags": [
+        "session-candidate"
+      ],
+      "source": "session-string",
+      "status": "open",
+      "created_at": "2026-05-19T17:12:16.931Z",
+      "updated_at": "2026-05-19T17:12:16.931Z"
+    }
+  ]
 }

@@ -1,17 +1,18 @@
 # Verification Strategy
 
 ## Durable Verification State
-- Completed: none
+- Completed: Verified six explicit budget lines are present in instructions/executive-director.md.
 - Pending: none
-- Planned: none
+- Planned: Confirm the Phase 1 Executive Director hiring section contains one explicit budget line per director hire.
 
 ## Related Files
-- No verification-linked files recorded
+- instructions/executive-director.md
+- adapter/src/tools.ts
 
 ## Verification Notes
 - No durable verification notes recorded
 
 ## Session Snapshot
-- Session completed: none
+- Session completed: Verified six explicit budget lines are present in instructions/executive-director.md.
 - Session pending: none
-- Session planned: none
+- Session planned: Confirm the Phase 1 Executive Director hiring section contains one explicit budget line per director hire.

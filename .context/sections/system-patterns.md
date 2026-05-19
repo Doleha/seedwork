@@ -11,8 +11,11 @@
   - adapter/tsconfig.json
 - CLAUDE.md
 - clipmart-template.json
+- CONTEXT.md
 - docker-compose.n8n.yml
 - docker-compose.yml
+- docs/
+  - docs/adr/
 - extensions/
   - extensions/n8n-bridge/
 - instructions/
