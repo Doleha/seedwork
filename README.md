@@ -407,6 +407,45 @@ docker compose down -v
 
 ---
 
+## FAQ
+
+**Is this only for nonprofit incubators and accelerators?**
+
+No. The current repo is packaged for that domain, but the same foundation can be adapted for commercial entities and other operating models by changing the domain layer in [CLAUDE.md](CLAUDE.md), the agent instructions, shared references, workflows, and schema.
+
+**Do I need to edit JSON files manually to get started?**
+
+No. Use `python3 wizard.py` to create or update `org.config.json`, then continue with `.env` setup and `./setup.sh`.
+
+**Does the system run fully autonomously?**
+
+No. Agents operate continuously, but Board-level approvals still flow through you. The system is designed to automate operations while keeping human oversight for hires, key decisions, and escalations.
+
+**Can I contribute new integrations or communication channels?**
+
+Yes. Additional bridges for Slack, Telegram, Discord, and other channels are good contribution targets.
+
+---
+
+## Roadmap
+
+Completed work uses `✅`. Planned work uses `⚪`.
+
+- ✅ Local `llama-server` adapter with tool-calling support
+- ✅ Domain schema and phased SQL migrations
+- ✅ Staff-facing React dashboard for decisions, reporting, and corrective actions
+- ✅ WhatsApp intake bridge via webhook handler
+- ✅ n8n bridge for optional workflow automation
+- ✅ Organization setup wizard and generated org profile flow
+- ✅ Contributor documentation and public repo cleanup
+- ⚪ Slack, Telegram, and Discord messaging bridges
+- ⚪ Broader commercial-domain templates beyond incubator/accelerator operations
+- ⚪ Authentication and access control hardening for the staff UI
+- ⚪ Deployment and infrastructure guides for broader self-hosting scenarios
+- ⚪ Expanded admin workflows, reporting, and operational analytics
+
+---
+
 ## Project Structure
 
 ```
