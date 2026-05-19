@@ -10,7 +10,7 @@
 
 ## What This Is
 
-Incubator/Accelerator OS is an open source operations platform for nonprofit incubator and accelerator organizations. It is built natively on top of [Paperclip](https://paperclipai.com) — an AI agent orchestration platform — the same way Supabase is built on top of Postgres. Paperclip is the engine; this project is the domain layer.
+Incubator/Accelerator OS is an open source operations platform for nonprofit incubator and accelerator organizations. It is built natively on top of [Paperclip](https://github.com/paperclipai/paperclip) — an AI agent orchestration platform — the same way Supabase is built on top of Postgres. Paperclip is the engine; this project is the domain layer.
 
 Although this repository is packaged for a nonprofit incubator/accelerator use case, the same foundation can be adapted for commercial entities and other operating models by changing the domain layer: [CLAUDE.md](CLAUDE.md), agent instructions, shared references, skills, schema, and related workflow definitions.
 
@@ -447,5 +447,5 @@ Start with [CONTRIBUTING.md](CONTRIBUTING.md) for the development workflow, vali
 
 MIT License. See [LICENSE](LICENSE).
 
-Built on [Paperclip](https://paperclipai.com) (MIT).
+Built on [Paperclip](https://github.com/paperclipai/paperclip) (MIT).
 Model weights: Qwen3.6 35B A3B — Apache 2.0 license. See [Qwen3 license](https://huggingface.co/Qwen/Qwen3-235B-A22B/blob/main/LICENSE) for details.
