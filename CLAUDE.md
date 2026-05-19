@@ -568,6 +568,7 @@ the Paperclip API call.
 │       └── 030_program_feedback.sql
 │
 ├── setup.sh                         ← ONE-COMMAND INSTALLER (run this first)
+├── wizard.py                        ← Lightweight terminal wizard for org.config.json
 ├── org.config.json                  ← FILL THIS IN FIRST — your org identity
 │
 ├── scripts/
@@ -1405,13 +1406,26 @@ Register adapter in Paperclip's registry:
 
 ### TASK 5 — Write setup scripts
 
-Five scripts. Together they are the complete installation and configuration flow.
+Six setup assets. Together they are the complete installation and configuration flow.
 
 ---
 
-**`org.config.json`** — Organization identity file. Users fill this in FIRST,
-before running anything. It drives Paperclip company creation, agent context,
-and org-profile generation. Write it with these exact top-level keys:
+**`wizard.py`** — Lightweight terminal setup wizard for `org.config.json`.
+Users run `python3 wizard.py` to create or update organization identity values
+without editing JSON manually. The wizard should:
+
+- Load existing `org.config.json` when present and preserve values by default
+- Prompt section-by-section for organization, program, culture, social, and budget fields
+- Use privacy-safe generic placeholders, not hardcoded personal names
+- Write valid JSON to `org.config.json`
+- Exit cleanly on EOF or Ctrl+C
+
+---
+
+**`org.config.json`** — Organization identity file. Users create or update this
+via `python3 wizard.py` before running anything. It drives Paperclip company
+creation, agent context, and org-profile generation. Write it with these exact
+top-level keys:
 
 ```json
 {
@@ -1544,7 +1558,7 @@ from pathlib import Path
 def generate():
     config_path = Path('org.config.json')
     if not config_path.exists():
-        print("ERROR: org.config.json not found. Fill it in before running setup.")
+        print("ERROR: org.config.json not found. Run python3 wizard.py before running setup.")
         exit(1)
 
     with open(config_path) as f:
@@ -1734,15 +1748,16 @@ echo "You can now run: ./setup.sh"
 
 ---
 
-**`setup.sh`** — The single entry point. Users run this after filling in
-`org.config.json` and `.env`. Runs the org profile generator, then starts
+**`setup.sh`** — The single entry point. Users run this after configuring
+organization identity with `python3 wizard.py` and filling in `.env`. Runs the
+org profile generator, then starts
 everything.
 
 ```bash
 #!/bin/bash
 # setup.sh
 # Usage: ./setup.sh
-# Prerequisites: org.config.json filled in, .env filled in,
+# Prerequisites: .env filled in,
 #                model downloaded via scripts/download-model.sh
 
 set -e
@@ -1758,19 +1773,17 @@ echo "║     Nonprofit Incubator/Accelerator OS — Setup       ║"
 echo "╚══════════════════════════════════════════════════════╝"
 echo -e "${NC}"
 
-# Check org.config.json exists and is filled in
 if [ ! -f org.config.json ]; then
-  echo -e "${RED}Error: org.config.json not found.${NC}"
-  echo "Fill in org.config.json with your organization details before running setup."
-  exit 1
+  echo -e "${YELLOW}org.config.json not found. Launching setup wizard...${NC}"
+  python3 wizard.py
 fi
+python3 -c "import json; json.load(open('org.config.json'))" 2>/dev/null || {
+  echo -e "${RED}Error: org.config.json is not valid JSON.${NC}"
+  echo "Re-run: python3 wizard.py"
+  exit 1
+}
 
-ORG_NAME=$(python3 -c "import json; print(json.load(open('org.config.json'))['org']['name'])" 2>/dev/null || echo "")
-if [ -z "$ORG_NAME" ] || [ "$ORG_NAME" = "Your Organization Name" ]; then
-  echo -e "${RED}Error: org.config.json not filled in.${NC}"
-  echo "Set your organization name and mission in org.config.json first."
-  exit 1
-fi
+ORG_NAME=$(python3 -c "import json; print(json.load(open('org.config.json'))['org']['name'])")
 
 # Check .env exists
 if [ ! -f .env ]; then
@@ -1778,6 +1791,8 @@ if [ ! -f .env ]; then
   echo "Run: cp .env.example .env  then fill in your values."
   exit 1
 fi
+
+# shellcheck source=/dev/null
 source .env
 
 for var in PAPERCLIP_API_KEY DATABASE_URL; do
@@ -1794,40 +1809,52 @@ if [ ! -f "$MODEL_FILE" ]; then
   exit 1
 fi
 
-echo -e "${YELLOW}[1/6] Generating organization profile for agents...${NC}"
+echo "  Generating org profile for agents..."
 python3 scripts/generate-org-profile.py
-echo "  Organization: $ORG_NAME"
 
-echo -e "${YELLOW}[2/6] Starting Docker services...${NC}"
+echo -e "${YELLOW}[1/5] Starting Docker services...${NC}"
 docker compose up -d
 
-echo -e "${YELLOW}[3/6] Waiting for Paperclip to be ready...${NC}"
+echo -e "${YELLOW}[2/5] Waiting for services to be ready...${NC}"
 for i in $(seq 1 30); do
   sleep 2
   if docker compose exec -T paperclip wget -qO- http://localhost:3100/health > /dev/null 2>&1; then
-    echo "  Paperclip ready."; break
+    echo "  Paperclip ready."
+    break
   fi
-  [ $i -eq 30 ] && echo -e "${RED}Timeout. Check: docker compose logs paperclip${NC}" && exit 1
+  if [ "$i" -eq 30 ]; then
+    echo -e "${RED}Timeout waiting for Paperclip. Check: docker compose logs paperclip${NC}"
+    exit 1
+  fi
   echo "  Waiting... ($((i*2))/60s)"
 done
 
-echo -e "${YELLOW}[4/6] Waiting for llama-server to load model into VRAM...${NC}"
-echo "  Model is local — loading into VRAM takes ~60-90 seconds..."
+# Model file must already exist locally — run scripts/download-model.sh first.
+if [ ! -f ./models/Qwen3.6-35B-A3B-UD-Q4_K_XL.gguf ]; then
+  echo -e "${RED}Error: ./models/Qwen3.6-35B-A3B-UD-Q4_K_XL.gguf not found.${NC}"
+  echo "Run: bash scripts/download-model.sh   (one-time, ~20GB download)"
+  exit 1
+fi
+echo -e "${YELLOW}[3/5] Waiting for llama-server to load model into VRAM (~60-90s)...${NC}"
 for i in $(seq 1 24); do
   sleep 5
   if curl -sf http://localhost:9874/health > /dev/null 2>&1; then
-    echo "  llama-server ready."; break
+    echo "  llama-server ready."
+    break
   fi
-  [ $i -eq 24 ] && echo -e "${RED}Timeout. Check: docker compose logs llm${NC}" && exit 1
-  echo "  Loading... ($((i*5))/120s)"
+  if [ "$i" -eq 24 ]; then
+    echo -e "${RED}Timeout waiting for llama-server. Check: docker compose logs llm${NC}"
+    exit 1
+  fi
+  echo "  Loading model... ($((i*5))/120s)"
 done
 
-echo -e "${YELLOW}[5/6] Applying Phase 1 database migrations...${NC}"
+echo -e "${YELLOW}[4/5] Applying Phase 1 database migrations...${NC}"
 for f in migrations/phase1/*.sql; do
   psql "$DATABASE_URL" -f "$f" > /dev/null && echo "  ✓ $f"
 done
 
-echo -e "${YELLOW}[6/6] Creating company and Executive Director in Paperclip...${NC}"
+echo -e "${YELLOW}[5/5] Creating company and Executive Director...${NC}"
 bash setup/init-company.sh
 
 echo -e "${GREEN}"
@@ -1835,17 +1862,17 @@ echo "╔═══════════════════════�
 echo "║                Setup Complete! ✓                     ║"
 echo "╚══════════════════════════════════════════════════════╝"
 echo -e "${NC}"
-echo "  Organization:         $ORG_NAME"
 echo "  Paperclip dashboard:  http://localhost:3100"
 echo "  Staff UI:             http://localhost:80"
 echo ""
 echo "Next steps:"
-echo "  1. Open Paperclip and approve the Executive Director's strategy"
+echo "  1. Open Paperclip and approve the Executive Director strategy"
 echo "  2. Approve director hire requests as they appear"
-echo "  3. Your org builds itself from here"
+echo "  3. Open Staff UI → DataEntry to seed initial data (mentors, compliance items, etc.)"
+echo "  4. Your org builds itself from here"
 echo ""
-echo "  Phase 2 when ready:  bash scripts/activate-phase.sh 2"
-echo "  n8n bridge:          docker compose -f docker-compose.yml -f docker-compose.n8n.yml up -d"
+echo "Phase 2 when ready:  bash scripts/activate-phase.sh 2"
+echo "n8n bridge:          docker compose -f docker-compose.yml -f docker-compose.n8n.yml up -d"
 ```
 
 ---
@@ -2245,8 +2272,8 @@ Verify GPU access:
 git clone https://github.com/your-org/incubator-os.git
 cd incubator-os
 
-# 2. Fill in your organization identity (do this FIRST)
-nano org.config.json
+# 2. Create your organization identity (do this FIRST)
+python3 wizard.py
 
 # 3. Fill in technical configuration
 cp .env.example .env
@@ -2454,7 +2481,8 @@ own licenses (Qwen3.6 — Apache 2.0).
   Directory is ready to upload to GitHub.
 
   Contents:
-    org.config.json      — fill this in first (organization identity)
+    wizard.py            — terminal wizard for org.config.json
+    org.config.json      — generated or updated by the wizard (organization identity)
     instructions/        — [N] agent instructions files
       shared/org-profile.md — generated from org.config.json at setup time
     migrations/          — 30 SQL migrations across 3 phases
@@ -2468,7 +2496,7 @@ own licenses (Qwen3.6 — Apache 2.0).
 
   To install on any machine:
     git clone <repo>
-    nano org.config.json              # fill in your org details
+    python3 wizard.py                 # create or update your org details
     cp .env.example .env && nano .env # fill in technical config
     bash scripts/download-model.sh   # download LLM (~20GB, one-time)
     chmod +x setup.sh
