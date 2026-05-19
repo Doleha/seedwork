@@ -6,6 +6,8 @@
 ![Built on Paperclip](https://img.shields.io/badge/Built%20on-Paperclip-orange.svg)
 ![Requires 24GB VRAM](https://img.shields.io/badge/GPU-24GB%20VRAM%20minimum-red.svg)
 
+Quick Start · [Contributing](CONTRIBUTING.md) · [Roadmap](ROADMAP.md) · [Paperclip](https://github.com/paperclipai/paperclip)
+
 ---
 
 ## What This Is
@@ -17,6 +19,35 @@ Although this repository is packaged for a nonprofit incubator/accelerator use c
 You start with one agent: the Executive Director. On its first run, it drafts an organizational strategy and submits it for your approval. Once approved, it requests director hires — one for each department. You approve each hire. Each director then builds their own team. Workers run on scheduled heartbeats, process domain data, write recommendations to a decision queue, and escalate to you when they need human judgment. You are the Board.
 
 The platform covers the full nonprofit operational surface: program delivery (incubator and accelerator tracks), finance, HR, marketing, compliance, fundraising, donor management, alumni relations, investor relations, community engagement, and a continuous quality and performance monitoring system.
+
+---
+
+## Is This Right For You?
+
+- ✅ You want an AI-operated incubator or accelerator with persistent organizational structure.
+- ✅ You need agents that run on schedules, escalate to humans, and work through approvals instead of ad hoc prompting.
+- ✅ You want a domain layer on top of Paperclip rather than building one from scratch.
+- ✅ You want a foundation that can be adapted to other operating models, including commercial entities.
+- ❌ You only need a single chatbot or a basic prompt pack.
+- ❌ You want a no-code workflow builder with no organizational model.
+
+---
+
+## Problems This Solves
+
+- Founder intake, program routing, and operational follow-up scattered across inboxes and spreadsheets.
+- Agent workflows with no org chart, no approval chain, and no persistent accountability.
+- Program operations that depend on repeated manual coordination for reporting, matching, compliance, and escalation.
+- AI automations that can produce output, but not operate inside a governed organization with roles, budgets, and review paths.
+
+---
+
+## What This Is Not
+
+- Not a generic chatbot frontend.
+- Not just a prompt library or agent role pack.
+- Not a replacement for Paperclip itself.
+- Not limited to nonprofit incubators forever; this repo is a domain implementation, not the underlying control plane.
 
 ---
 
@@ -429,20 +460,18 @@ Yes. Additional bridges for Slack, Telegram, Discord, and other channels are goo
 
 ## Roadmap
 
-Completed work uses `✅`. Planned work uses `⚪`.
+Short roadmap preview:
 
 - ✅ Local `llama-server` adapter with tool-calling support
 - ✅ Domain schema and phased SQL migrations
 - ✅ Staff-facing React dashboard for decisions, reporting, and corrective actions
 - ✅ WhatsApp intake bridge via webhook handler
-- ✅ n8n bridge for optional workflow automation
-- ✅ Organization setup wizard and generated org profile flow
-- ✅ Contributor documentation and public repo cleanup
 - ⚪ Slack, Telegram, and Discord messaging bridges
 - ⚪ Broader commercial-domain templates beyond incubator/accelerator operations
 - ⚪ Authentication and access control hardening for the staff UI
 - ⚪ Deployment and infrastructure guides for broader self-hosting scenarios
-- ⚪ Expanded admin workflows, reporting, and operational analytics
+
+See the full roadmap in [ROADMAP.md](ROADMAP.md).
 
 ---
 
@@ -450,6 +479,7 @@ Completed work uses `✅`. Planned work uses `⚪`.
 
 ```
 incubator-os/
+├── ROADMAP.md          Product and project roadmap
 ├── instructions/        Agent instructions files (55+ NLP job descriptions)
 ├── migrations/          SQL migrations (30 files across 3 phases)
 ├── adapter/             Custom local_llm Paperclip adapter (TypeScript)
@@ -465,6 +495,31 @@ incubator-os/
 ├── clipmart-template.json  Paperclip org template (Company + CEO)
 └── .env.example         All environment variables with descriptions
 ```
+
+---
+
+## Development
+
+For the most common development checks:
+
+```bash
+pnpm install
+pnpm typecheck
+pnpm build
+python3 -m py_compile wizard.py
+python3 -m py_compile scripts/generate-org-profile.py
+bash -n setup.sh
+```
+
+For contributor workflow details, validation guidance, and project-specific conventions, see [CONTRIBUTING.md](CONTRIBUTING.md).
+
+---
+
+## Community
+
+- [GitHub Issues](https://github.com/Doleha/incubator-os/issues) — bugs and feature requests
+- [Pull Requests](https://github.com/Doleha/incubator-os/pulls) — active contributions
+- [Paperclip](https://github.com/paperclipai/paperclip) — underlying orchestration platform
 
 ---
 
