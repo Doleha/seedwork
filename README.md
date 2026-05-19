@@ -12,6 +12,8 @@
 
 Incubator/Accelerator OS is an open source operations platform for nonprofit incubator and accelerator organizations. It is built natively on top of [Paperclip](https://paperclipai.com) — an AI agent orchestration platform — the same way Supabase is built on top of Postgres. Paperclip is the engine; this project is the domain layer.
 
+Although this repository is packaged for a nonprofit incubator/accelerator use case, the same foundation can be adapted for commercial entities and other operating models by changing the domain layer: [CLAUDE.md](CLAUDE.md), agent instructions, shared references, skills, schema, and related workflow definitions.
+
 You start with one agent: the Executive Director. On its first run, it drafts an organizational strategy and submits it for your approval. Once approved, it requests director hires — one for each department. You approve each hire. Each director then builds their own team. Workers run on scheduled heartbeats, process domain data, write recommendations to a decision queue, and escalate to you when they need human judgment. You are the Board.
 
 The platform covers the full nonprofit operational surface: program delivery (incubator and accelerator tracks), finance, HR, marketing, compliance, fundraising, donor management, alumni relations, investor relations, community engagement, and a continuous quality and performance monitoring system.
@@ -436,7 +438,7 @@ Pull requests are welcome. Areas especially appreciated:
 - **Integration adapters** for other LLM providers
 - **Bug reports** via GitHub Issues
 
-Start with [CONTRIBUTING.md](/home/adoleh/Documents/incubator-os/CONTRIBUTING.md) for the development workflow, validation commands, PR expectations, and project-specific conventions.
+Start with [CONTRIBUTING.md](CONTRIBUTING.md) for the development workflow, validation commands, PR expectations, and project-specific conventions.
 
 ---
 

@@ -12,8 +12,8 @@ The fastest way to make a useful contribution is to stay within the existing pat
 
 ## Before You Start
 
-- Read [README.md](/home/adoleh/Documents/incubator-os/README.md) for the product and deployment model.
-- Check the shared agent references in [instructions/shared/database-reference.md](/home/adoleh/Documents/incubator-os/instructions/shared/database-reference.md), [instructions/shared/tools-reference.md](/home/adoleh/Documents/incubator-os/instructions/shared/tools-reference.md), and [instructions/shared/scaling-guide.md](/home/adoleh/Documents/incubator-os/instructions/shared/scaling-guide.md) before editing role instructions.
+- Read [README.md](README.md) for the product and deployment model.
+- Check the shared agent references in [instructions/shared/database-reference.md](instructions/shared/database-reference.md), [instructions/shared/tools-reference.md](instructions/shared/tools-reference.md), and [instructions/shared/scaling-guide.md](instructions/shared/scaling-guide.md) before editing role instructions.
 - Keep contributions focused. Avoid bundling unrelated cleanup with feature work.
 - Do not introduce real personal data, private contacts, or organization-specific names into checked-in defaults, examples, or docs.
 
@@ -28,7 +28,7 @@ The fastest way to make a useful contribution is to stay within the existing pat
 
 ## Development Setup
 
-1. Install Node.js 20+, pnpm, Python 3.8+, and the other prerequisites listed in [README.md](/home/adoleh/Documents/incubator-os/README.md).
+1. Install Node.js 20+, pnpm, Python 3.8+, and the other prerequisites listed in [README.md](README.md).
 2. Install workspace dependencies:
 
 ```bash
@@ -42,17 +42,17 @@ python3 wizard.py
 cp .env.example .env
 ```
 
-4. For full-stack local setup, follow the installation flow in [README.md](/home/adoleh/Documents/incubator-os/README.md).
+4. For full-stack local setup, follow the installation flow in [README.md](README.md).
 
 ## Project Structure
 
-- [adapter](/home/adoleh/Documents/incubator-os/adapter): custom `local_llm` Paperclip adapter
-- [staff-ui](/home/adoleh/Documents/incubator-os/staff-ui): React/Vite operator dashboard
-- [webhook-handler](/home/adoleh/Documents/incubator-os/webhook-handler): WhatsApp bridge
-- [extensions/n8n-bridge](/home/adoleh/Documents/incubator-os/extensions/n8n-bridge): optional n8n bridge
-- [instructions](/home/adoleh/Documents/incubator-os/instructions): agent role instructions and shared references
-- [migrations](/home/adoleh/Documents/incubator-os/migrations): SQL schema by phase
-- [scripts](/home/adoleh/Documents/incubator-os/scripts): install and activation helpers
+- [adapter](adapter): custom `local_llm` Paperclip adapter
+- [staff-ui](staff-ui): React/Vite operator dashboard
+- [webhook-handler](webhook-handler): WhatsApp bridge
+- [extensions/n8n-bridge](extensions/n8n-bridge): optional n8n bridge
+- [instructions](instructions): agent role instructions and shared references
+- [migrations](migrations): SQL schema by phase
+- [scripts](scripts): install and activation helpers
 
 ## Contribution Workflow
 
@@ -126,7 +126,7 @@ When adding a new role, make sure the reporting line, scope, and escalation path
 ## Documentation Guidelines
 
 - Keep examples privacy-safe and generic.
-- When setup behavior changes, update both [README.md](/home/adoleh/Documents/incubator-os/README.md) and [CLAUDE.md](/home/adoleh/Documents/incubator-os/CLAUDE.md) if the spec or build brief changed.
+- When setup behavior changes, update both [README.md](README.md) and [CLAUDE.md](CLAUDE.md) if the spec or build brief changed.
 - Prefer explicit operator instructions over implied knowledge.
 
 ## Pull Request Expectations
