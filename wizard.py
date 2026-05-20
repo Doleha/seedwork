@@ -22,7 +22,7 @@ DEFAULT_CONFIG: dict[str, Any] = {
         "ein": "XX-XXXXXXX",
         "state_of_incorporation": "TX",
         "fiscal_year_end": "12-31",
-        "website": "https://yourorg.org",
+        "website": "https://seedwork.dev",
         "email": "info@yourorg.org",
         "phone": "",
         "address": "",
@@ -164,7 +164,7 @@ def main() -> int:
     org["ein"] = prompt_text("EIN", str(org.get("ein", "")))
     org["state_of_incorporation"] = prompt_text("State of incorporation", str(org.get("state_of_incorporation", "")))
     org["fiscal_year_end"] = prompt_text("Fiscal year end (MM-DD)", str(org.get("fiscal_year_end", "12-31")), required=True)
-    org["website"] = prompt_text("Website", str(org.get("website", "")))
+    org["website"] = prompt_text("Website", str(org.get("website", "https://seedwork.dev")))
     org["email"] = prompt_text("Email", str(org.get("email", "")))
     org["phone"] = prompt_text("Phone", str(org.get("phone", "")))
     org["address"] = prompt_text("Address", str(org.get("address", "")))
