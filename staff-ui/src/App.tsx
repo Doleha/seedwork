@@ -111,7 +111,7 @@ export default function App() {
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex items-center gap-4 py-3">
             <h1 className="text-lg font-bold text-gray-900 shrink-0">
-              Incubator/Accelerator OS
+              Seedwork
             </h1>
             <span className="text-xs bg-blue-100 text-blue-700 px-2 py-0.5 rounded-full font-medium">
               Phase {ACTIVE_PHASE}

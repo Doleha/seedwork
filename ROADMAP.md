@@ -1,6 +1,6 @@
 # Roadmap
 
-This roadmap tracks the current direction of Incubator/Accelerator OS.
+This roadmap tracks the current direction of Seedwork.
 
 Completed work uses `✅`. Planned work uses `⚪`.
 

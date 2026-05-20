@@ -1,4 +1,4 @@
-# Incubator/Accelerator OS
+# Seedwork
 
 **Open-source operating system for nonprofit incubators and accelerators — built on Paperclip, staffed by agents, governed by humans.**
 
@@ -23,7 +23,7 @@ Board approvals
    ↓
 Paperclip control plane
    ↓
-Incubator/Accelerator OS domain layer
+Seedwork domain layer
    ↓
 local_llm adapter + Postgres schema + Staff UI + Messaging bridges
 ```
@@ -45,7 +45,7 @@ local_llm adapter + Postgres schema + Staff UI + Messaging bridges
 
 ## What This Is
 
-Incubator/Accelerator OS is an open source operations platform for nonprofit incubator and accelerator organizations. It is built natively on top of [Paperclip](https://github.com/paperclipai/paperclip), the same way Supabase is built on top of Postgres. Paperclip is the engine; this repository is the domain implementation.
+Seedwork is an open source operations platform for nonprofit incubator and accelerator organizations. It is built natively on top of [Paperclip](https://github.com/paperclipai/paperclip), the same way Supabase is built on top of Postgres. Paperclip is the engine; this repository is the domain implementation.
 
 Although this repository is packaged for a nonprofit incubator and accelerator use case, the same foundation can be adapted for commercial entities and other operating models by changing the domain layer: [CLAUDE.md](CLAUDE.md), agent instructions, shared references, skills, schema, and related workflow definitions.
 

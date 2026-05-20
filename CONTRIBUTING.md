@@ -1,6 +1,6 @@
 # Contributing
 
-Thanks for contributing to Incubator/Accelerator OS.
+Thanks for contributing to Seedwork.
 
 This project combines several different contribution surfaces in one repository:
 - agent instructions written as NLP role documents
