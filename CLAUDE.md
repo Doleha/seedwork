@@ -1035,6 +1035,61 @@ export function scoreOutput(output: string, agentRole: string): QualityScore {
 }
 ```
 
+`adapter/src/schema.ts` — JSON Schema validation for `write_decision` args.
+Called inside `executeToolCall` before every `write_decision` INSERT. Prevents
+malformed agent outputs (missing `reasoning`, empty `recommendation`, etc.) from
+reaching the database. Fails to a quality flag rather than crashing the tool loop.
+
+```typescript
+// Required fields and minimum lengths for write_decision args.
+// Any violation is returned as { error, flag: 'schema_validation_failed' }
+// to the agent so it can self-correct in the next tool call.
+
+interface DecisionArgs {
+  entityType: string;
+  entityId?: string;
+  department: string;
+  recommendation: string;
+  reasoning: string;
+  data?: object;
+}
+
+export class DecisionValidationError extends Error {
+  constructor(public readonly fields: string[]) {
+    super(`write_decision validation failed: ${fields.join('; ')}`);
+    this.name = 'DecisionValidationError';
+  }
+}
+
+export function validateDecisionArgs(args: Record<string, unknown>): DecisionArgs {
+  const errors: string[] = [];
+
+  if (typeof args.entityType !== 'string' || args.entityType.trim() === '') {
+    errors.push('entityType: required non-empty string');
+  }
+  if (typeof args.department !== 'string' || args.department.trim() === '') {
+    errors.push('department: required non-empty string');
+  }
+  if (typeof args.recommendation !== 'string' || args.recommendation.trim() === '') {
+    errors.push('recommendation: required non-empty string');
+  }
+  if (typeof args.reasoning !== 'string' || args.reasoning.trim().length < 20) {
+    errors.push('reasoning: required string, minimum 20 characters');
+  }
+
+  if (errors.length > 0) {
+    throw new DecisionValidationError(errors);
+  }
+
+  return args as unknown as DecisionArgs;
+}
+```
+
+In `tools.ts`, import `validateDecisionArgs` and `DecisionValidationError` from `./schema`.
+Wrap the `write_decision` case: call `validateDecisionArgs(args)` first. If it throws,
+catch `DecisionValidationError` and `return { error: err.message, flag: 'schema_validation_failed' }`
+so the agent receives structured feedback rather than an unhandled crash.
+
 `adapter/src/paperclip-client.ts` — Paperclip API calls:
 
 ```typescript
@@ -1767,6 +1822,38 @@ YELLOW='\033[1;33m'
 RED='\033[0;31m'
 NC='\033[0m'
 
+# Status subcommand: ./setup.sh status — inspect without running setup
+if [ "$1" = "status" ]; then
+  source .env 2>/dev/null || true
+  echo "=== Incubator OS Setup Status ==="
+  [ -f ./models/Qwen3.6-35B-A3B-UD-Q4_K_XL.gguf ] \
+    && echo "  ✓ Model file present" \
+    || echo "  ✗ Model file missing — run: bash scripts/download-model.sh"
+  TABLES=$(psql "$DATABASE_URL" -tAc \
+    "SELECT tablename FROM pg_tables WHERE schemaname='public'" 2>/dev/null)
+  for t in cohorts founders ventures milestones mentors matches sessions \
+            decisions events_log agent_performance schema_migrations; do
+    echo "$TABLES" | grep -q "^${t}$" \
+      && echo "  ✓ Table: $t" \
+      || echo "  ✗ Table missing: $t"
+  done
+  COMPANY_ID=$(grep COMPANY_ID .ids 2>/dev/null | cut -d= -f2 || echo "")
+  [ -n "$COMPANY_ID" ] \
+    && echo "  ✓ Company: $COMPANY_ID" \
+    || echo "  ✗ Company not created — run: ./setup.sh"
+  CEO_ID=$(grep CEO_ID .ids 2>/dev/null | cut -d= -f2 || echo "")
+  [ -n "$CEO_ID" ] \
+    && echo "  ✓ Executive Director: $CEO_ID" \
+    || echo "  ✗ Executive Director not created"
+  curl -sf http://localhost:3100/health > /dev/null 2>&1 \
+    && echo "  ✓ Paperclip running" \
+    || echo "  ✗ Paperclip not reachable"
+  curl -sf http://localhost:9874/health > /dev/null 2>&1 \
+    && echo "  ✓ llama-server running" \
+    || echo "  ✗ llama-server not reachable"
+  exit 0
+fi
+
 echo -e "${GREEN}"
 echo "╔══════════════════════════════════════════════════════╗"
 echo "║     Nonprofit Incubator/Accelerator OS — Setup       ║"
@@ -1800,6 +1887,28 @@ for var in PAPERCLIP_API_KEY DATABASE_URL; do
     echo -e "${RED}Error: $var not set in .env${NC}"; exit 1
   fi
 done
+
+# Hardware pre-flight: verify GPU VRAM and CUDA compute capability
+echo "  Checking GPU hardware requirements..."
+if ! command -v nvidia-smi &> /dev/null; then
+  echo -e "${RED}Error: nvidia-smi not found. Install NVIDIA drivers first.${NC}"
+  echo "  https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html"
+  exit 1
+fi
+VRAM_MB=$(nvidia-smi --query-gpu=memory.total --format=csv,noheader,nounits | head -n1 | tr -d ' ')
+VRAM_GB=$(( VRAM_MB / 1024 ))
+if [ "$VRAM_GB" -lt 24 ]; then
+  echo -e "${RED}Error: GPU has ${VRAM_GB}GB VRAM. Minimum required is 24GB.${NC}"
+  echo "  qwen3.6:35b-a3b UD-Q4_K_XL requires ~22GB VRAM with --n-cpu-moe 17."
+  exit 1
+fi
+COMPUTE=$(nvidia-smi --query-gpu=compute_cap --format=csv,noheader | head -n1 | tr -d ' ')
+COMPUTE_MAJOR=$(echo "$COMPUTE" | cut -d'.' -f1)
+if [ "$COMPUTE_MAJOR" -lt 8 ]; then
+  echo -e "${YELLOW}Warning: GPU compute capability $COMPUTE detected. Flash Attention requires 8.0+.${NC}"
+  echo "  Continuing — llama-server will run without Flash Attention."
+fi
+echo "  GPU: ${VRAM_GB}GB VRAM, compute $COMPUTE ✓"
 
 # Check model is downloaded
 MODEL_FILE="./models/Qwen3.6-35B-A3B-UD-Q4_K_XL.gguf"
@@ -1850,9 +1959,7 @@ for i in $(seq 1 24); do
 done
 
 echo -e "${YELLOW}[4/5] Applying Phase 1 database migrations...${NC}"
-for f in migrations/phase1/*.sql; do
-  psql "$DATABASE_URL" -f "$f" > /dev/null && echo "  ✓ $f"
-done
+python3 scripts/migrate.py 1
 
 echo -e "${YELLOW}[5/5] Creating company and Executive Director...${NC}"
 bash setup/init-company.sh
@@ -1942,9 +2049,7 @@ PHASE=${1:-2}
 source .env
 
 echo "Applying Phase $PHASE migrations..."
-for f in migrations/phase${PHASE}/*.sql; do
-  psql "$DATABASE_URL" -f "$f" > /dev/null && echo "  ✓ $f"
-done
+python3 scripts/migrate.py "$PHASE"
 
 echo ""
 echo "Phase $PHASE migrations applied."
@@ -1952,7 +2057,115 @@ echo "In Paperclip, tell the Executive Director:"
 echo "  'Phase $PHASE is ready. Please request Phase $PHASE director hires.'"
 ```
 
-- Print: `[TASK 5 COMPLETE] — all setup scripts written including org profile generator and model downloader`
+---
+
+**`scripts/migrate.py`** — Lightweight migration manifest runner (~60 lines).
+Replaces the raw `for f in migrations/*.sql; do psql ...` bash loops. Tracks
+which migrations have been applied in a `schema_migrations` table so migrations
+are never double-applied or silently skipped on re-run.
+
+Called by `setup.sh` as `python3 scripts/migrate.py 1` and by
+`scripts/activate-phase.sh` as `python3 scripts/migrate.py "$PHASE"`.
+
+```python
+#!/usr/bin/env python3
+"""
+scripts/migrate.py — Migration manifest runner
+Usage: python3 scripts/migrate.py <phase>   (phase = 1, 2, or 3)
+
+Tracks applied migrations in schema_migrations table.
+Safe to re-run — already-applied migrations are skipped.
+"""
+import os
+import sys
+import glob
+import psycopg2
+
+def get_connection():
+    url = os.environ.get("DATABASE_URL")
+    if not url:
+        print("ERROR: DATABASE_URL not set in environment.")
+        sys.exit(1)
+    return psycopg2.connect(url)
+
+def ensure_schema_migrations_table(conn):
+    with conn.cursor() as cur:
+        cur.execute("""
+            CREATE TABLE IF NOT EXISTS schema_migrations (
+              id SERIAL PRIMARY KEY,
+              filename TEXT NOT NULL UNIQUE,
+              applied_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+            )
+        """)
+    conn.commit()
+
+def get_applied(conn):
+    with conn.cursor() as cur:
+        cur.execute("SELECT filename FROM schema_migrations ORDER BY filename")
+        return {row[0] for row in cur.fetchall()}
+
+def apply_migration(conn, filepath, filename):
+    with open(filepath, "r") as f:
+        sql = f.read()
+    with conn.cursor() as cur:
+        cur.execute(sql)
+        cur.execute(
+            "INSERT INTO schema_migrations (filename) VALUES (%s)",
+            (filename,)
+        )
+    conn.commit()
+    print(f"  ✓ {filename}")
+
+def main():
+    if len(sys.argv) < 2:
+        print("Usage: python3 scripts/migrate.py <phase>")
+        sys.exit(1)
+
+    phase = sys.argv[1]
+    migration_dir = f"migrations/phase{phase}"
+    if not os.path.isdir(migration_dir):
+        print(f"ERROR: Directory not found: {migration_dir}")
+        sys.exit(1)
+
+    files = sorted(glob.glob(f"{migration_dir}/*.sql"))
+    if not files:
+        print(f"No .sql files found in {migration_dir}")
+        sys.exit(0)
+
+    conn = get_connection()
+    ensure_schema_migrations_table(conn)
+    applied = get_applied(conn)
+
+    skipped = 0
+    for filepath in files:
+        filename = os.path.basename(filepath)
+        if filename in applied:
+            skipped += 1
+            continue
+        try:
+            apply_migration(conn, filepath, filename)
+        except Exception as e:
+            conn.rollback()
+            print(f"  ✗ {filename}: {e}")
+            conn.close()
+            sys.exit(1)
+
+    conn.close()
+    if skipped:
+        print(f"  ({skipped} already-applied migration(s) skipped)")
+    print(f"Phase {phase} migrations complete.")
+
+if __name__ == "__main__":
+    main()
+```
+
+The `schema_migrations` table is created automatically on first run — no
+separate bootstrap step needed. All 30 migration files remain standalone SQL;
+migrate.py is purely a tracking wrapper.
+
+---
+
+- Print: `[TASK 5 COMPLETE] — all setup scripts written including org profile generator, model downloader, and migration manifest runner`
 
 ### TASK 6 — Write staff UI
 
@@ -3040,6 +3253,11 @@ CREATE TABLE IF NOT EXISTS corrective_actions (
   outcome TEXT CHECK (outcome IN ('improved','no_change','degraded')),
   verification_run_ids TEXT[],
   cycle_count INTEGER NOT NULL DEFAULT 0,
+  instructions_update_count INTEGER NOT NULL DEFAULT 0,
+  -- Auto-freeze: if instructions_update_count >= 3 AND instructions_last_updated_at
+  -- > NOW() - INTERVAL '14 days', do NOT apply another update_instructions action.
+  -- Performance Analyst must escalate to Board instead of attempting another update.
+  instructions_last_updated_at TIMESTAMPTZ,
   board_notified_at TIMESTAMPTZ,
   board_notification_summary TEXT,
   created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
@@ -3247,3 +3465,8 @@ N8N_BRIDGE_PORT=3300
 | Node version | 20 |
 | Commit style | Conventional commits |
 | License | MIT |
+| setup status | `./setup.sh status` — checks tables, company, model, services without running full setup |
+| Decision output validation | `validateDecisionArgs()` in `adapter/src/schema.ts`; called before every `write_decision` INSERT; fails to quality flag, not crash |
+| Migration tracking | `schema_migrations` table + `scripts/migrate.py` manifest runner; replaces raw psql loops; safe to re-run |
+| Hardware preflight | `nvidia-smi` VRAM ≥ 24GB + compute capability check in `setup.sh` before model load |
+| Instructions freeze | `instructions_update_count` + `instructions_last_updated_at` on `corrective_actions`; auto-freeze at 3 updates/14 days; escalate to Board |
